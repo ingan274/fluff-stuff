@@ -4,56 +4,101 @@ import {
 } from "react-router-dom";
 import "./style.css";
 import homeBanner from "../../assets/imgs/home/jonathan-borba-_peqvnRW7tc-unsplash.jpg"
+import Grid from '@material-ui/core/Grid';
 
 const Home = props => (
-    <body>
-        <div className='photo' style={{ backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(${homeBanner})` }}>
-            <h1 className='phototext'>pillows designed around you</h1>
-            <Link to="/shop" className='homeButtonCTA'>lets get comfy</Link>
-        </div>
-        <section class='PColors'>
-            <h1 class='title'>colors</h1>
-            <div class='colorPhotos'>
-                <div class='color'>
-                    <div class='colorImage school'></div>
-                    <p class="imageText photoText">AFTER SCHOOL SPECIAL</p>
-                </div>
-                <div class='color'>
-                    <div class='colorImage haze'></div>
-                    <p class="imageText photoText">MORNING HAZE</p>
-                </div>
-                <div class='color'>
-                    <div class='colorImage demin'></div>
-                    <p class="imageText photoText">COZY DEMIN</p>
-                </div>
-                <div class='color'>
-                    <div class='colorImage rainy'></div>
-                    <p class="imageText photoText">RAINY DAY</p>
-                </div>
-            </div>
-        </section>
-        <section class='PFills'>
-            <h1 class='title'>pillow fills</h1>
-            <div class='fillPhotos'>
-                <div class='fill'>
-                    <div class='fillImage duck'></div>
-                    <p>DUCK DOWN</p>
-                </div>
-                <div class='fill'>
-                    <div class='fillImage polyBlend'></div>
-                    <p>HYPOALLERGENIC POLY-BLEND</p>
-                </div>
-                <div class='fill'>
-                    <div class='fillImage foam'></div>
-                    <p>MEMORY FOAM</p>
-                </div>
-            </div>
+    <div>
+        <Grid container justify="center" className='photo' style={{ backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(${homeBanner})` }}>
+            <Grid item xs={12} className='bannerText'>pillows designed around you</Grid>
+            <Link item to="/shop" className='homeButtonCTA'>lets get comfy</Link>
 
-        </section>
-        <div class='button-shop'>
-            <a href="./all-prod.html" class='homeButtonCTA '>shop all pillows</a>
-        </div>
-    </body>
+        </Grid>
+
+        <Grid container className='PColors'>
+            <Grid item xs={12} className='title'>colors</Grid>
+            <Grid item container xs={12} direction="row"
+                justify="space-between"
+                alignItems="center"
+                className='colorPhotos'>
+                <Grid item xs={3} className='color'
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center">
+                    <div className='colorImage school'></div>
+                    <p className="imageText photoText">AFTER SCHOOL SPECIAL</p>
+                </Grid>
+                <Grid item xs={3} className='color'
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center">
+                    <div className='colorImage haze'></div>
+                    <p className="imageText photoText">MORNING HAZE</p>
+                </Grid>
+                <Grid item xs={3} className='color'
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center">
+                    <div className='colorImage demin'></div>
+                    <p className="imageText photoText">COZY DEMIN</p>
+                </Grid>
+                <Grid item xs={3} className='color'
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center">
+                    <div className='colorImage rainy'></div>
+                    <p className="imageText photoText">RAINY DAY</p>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid container className='PFills'>
+            <Grid item xs={12} className='title'>pillow fills</Grid>
+            <Grid item container xs={12} direction="row"
+                justify="space-between"
+                alignItems="center"
+                className='fillPhotos'>
+                <Grid item xs={4}
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    className='fill'>
+                    <div className='fillImage duck'></div>
+                    <p className="imageText">DUCK DOWN</p>
+                </Grid>
+                <Grid item xs={4}
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    className='fill'>
+                    <div className='fillImage polyBlend'></div>
+                    <p className="imageText">HYPOALLERGENIC POLY-BLEND</p>
+                </Grid>
+                <Grid item xs={4}
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    className='fill'>
+                    <div className='fillImage foam'></div>
+                    <p className="imageText">MEMORY FOAM</p>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid container
+            justify="center">
+            <Link to="/shop" className='homeButtonCTA bottom-button'>shop all pillows</Link>
+        </Grid>
+
+
+
+        <footer></footer>
+    </div>
 )
 
 

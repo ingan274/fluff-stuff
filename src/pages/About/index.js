@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import ArrowDropDownCircleRoundedIcon from '@material-ui/icons/ArrowDropDownCircleRounded';
 
 const About = props => (
     <div>
@@ -8,7 +9,7 @@ const About = props => (
         </section>
 
         <div className="stage">
-            <h1 className="aboutScroll bounce-1">&#42780;</h1>
+            <h1 className="aboutScroll bounce-1"><ArrowDropDownCircleRoundedIcon /></h1>
         </div>
 
         <div className='origin'>
@@ -18,7 +19,7 @@ const About = props => (
                 needs and different colors that are shaped by our environement. We made soft and springy plush pillows, made
                 for
                 snoozing, relaxing, and accesorizing.
-            They have the perfect fill so you can max out on comfort.<br/><br/>
+            They have the perfect fill so you can max out on comfort.<br /><br />
                     Learn more below...
         </p>
         </div>
