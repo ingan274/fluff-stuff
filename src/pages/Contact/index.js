@@ -1,6 +1,6 @@
 import "./style.css";
 import React, { Component } from "react";
-import { Container, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import "./style.css";
 
 class Contact extends Component {
