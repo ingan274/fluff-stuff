@@ -1,12 +1,13 @@
 import React from "react";
 import "./style.css";
 import ArrowDropDownCircleRoundedIcon from '@material-ui/icons/ArrowDropDownCircleRounded';
+import Grid from '@material-ui/core/Grid';
 
 const About = props => (
     <div>
-        <section className='photo'>
-            <h2 className='phototext'>fluff stuff makes pillows that match your every stage of life</h2>
-        </section>
+        <Grid container alignItems="center" className='photo'>
+            <Grid item className='phototext'>fluff stuff makes pillows that match your every stage of life</Grid>
+        </Grid>
 
         <div className="stage">
             <h1 className="aboutScroll bounce-1"><ArrowDropDownCircleRoundedIcon /></h1>
@@ -23,39 +24,51 @@ const About = props => (
                     Learn more below...
         </p>
         </div>
-        <section className="fillDetails">
-
-            <div className="fillDeets">
-                <div className="fillPhoto duck"></div>
-                <div className="details ">
+        <Grid container
+            justify="center" 
+            spacing={5}
+            className="fillDetails">
+            <Grid item container
+                direction="row"
+                justify="space-around"
+                alignItems="center"
+                className="fillDeets">
+                <Grid item xs={5} className="fillPhoto duck"></Grid>
+                <Grid item xs={6} className="details ">
                     <h2 className='filltitle'>duck down</h2>
                     <p className='filldesc'>Down makes for a buoyant, plush pillow because its clusters are incredibly efficient
                     at trapping air. Feathers are less pliant, and play an important role as a "pillow-within-a-pillow"
                     support in creating firmer pillows.</p>
-                </div>
-            </div>
+                </Grid>
+            </Grid>
 
-            <div className="fillDeets">
-                <div className="fillPhoto polyBlend"></div>
-                <div className="details ">
+            <Grid item container
+                direction="row"
+                justify="space-around"
+                alignItems="center" className="fillDeets">
+                <Grid item xs={5} className="fillPhoto polyBlend"></Grid>
+                <Grid item xs={6} className="details ">
                     <h2 className='filltitle'>hypoallergenic poly-blend</h2>
                     <p className='filldesc'>Cotton combined with polyester is less prone to pilling and static. Today’s
                     poly-cotton blends are softer than their predecessors. This type of fabric keeps it shape and color
                     longer, it doesn’t shrink, and helps those with extreme allergies.</p>
-                </div>
-            </div>
+                </Grid>
+            </Grid>
 
-            <div className="fillDeets">
-                <div className="fillPhoto foam"></div>
-                <div className="details ">
+            <Grid item container
+                direction="row"
+                justify="space-around"
+                alignItems="center" className="fillDeets">
+                <Grid item xs={5} className="fillPhoto foam"></Grid>
+                <Grid item xs={6} className="details ">
                     <h2 className='filltitle'>memory foam</h2>
                     <p className='filldesc'>Memory foam pillows are special because of the heat reactive cushioning insulator.
                     When pressure is applied along with heat, the foam reshapes itself to conform to the object. This is
                     why memory foam pillows shape to the head and neck better than other pillows.</p>
-                </div>
-            </div>
+                </Grid>
+            </Grid>
 
-        </section>
+        </Grid>
     </div>
 );
 

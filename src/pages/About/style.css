@@ -13,16 +13,14 @@
     background-position: center;
     width: 100%;
     height: 530px;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
 }
 
 .phototext {
+    font-family: var(--title-font);
     color: #2A379D;
-    width: 743.82px;
+    font-size: 53.45px;
+    padding: 40px 50px;
     text-align: center;
-    align-self: center;
 }
 
 /* About Text */
@@ -32,7 +30,7 @@
     height: 253px;
     display: flex;
     justify-content: center;
-    margin: 30px auto;
+    margin: 20px auto;
   
 }
 
@@ -55,7 +53,7 @@
     align-self: flex-end;
     animation-duration: 1.7s;
     animation-iteration-count: infinite;
-    color: #797979;
+    color: #5C64A2;
     margin: 0px auto;
 }
 .bounce-1 {
@@ -71,27 +69,10 @@
 
 
 /* Fill information */
-.fillDetails {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.fillDeets {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.details {
-    display: flex;
-    flex-direction: column;
-}
 
 div.fillPhoto {
     width: 611px;
     height: 257px;
-    margin: 30px 20px;
 }
 
 /* Images of Fill */
@@ -118,7 +99,6 @@ div.fillPhoto {
     width: 611px;
     font-size: 20px;
     color: #A8A8A8;
-    margin: 30px 20px;
 }
 
 .filltitle {
@@ -130,4 +110,8 @@ div.fillPhoto {
 
 .filldesc {
     font-family: var(--body-font);
+}
+
+.fillDeets {
+    margin-bottom: 30px;
 }
