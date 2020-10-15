@@ -4,13 +4,12 @@
   --bold: 700;
 }
 
-
 a, a:hover {
   text-decoration: none;
 }
 
 .nav{
-  margin: 30px 0px 45px;
+  margin: 30px 0px 40px;
 }
 
 #logo {
@@ -24,10 +23,19 @@ a, a:hover {
   color: #A8A8A8;
   text-align: center;
   align-self: center;
-  padding: 3px 40px;
+}
+
+.right {
+  margin: 3px 30px;
 }
 
 #shop:hover, #about:hover, #contact:hover, .cart:hover {
   color: #455274;
+}
+
+.selected {
+  color: #455274;
+  border-bottom: 3px solid #455274;
+  transition: border-bottom .5s ease-in-out;
 }
 

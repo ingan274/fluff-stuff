@@ -66,9 +66,10 @@ const About = props => (
                     When pressure is applied along with heat, the foam reshapes itself to conform to the object. This is
                     why memory foam pillows shape to the head and neck better than other pillows.</p>
                 </Grid>
-            </Grid>
-
+            </Grid> 
+           
         </Grid>
+        <footer></footer>
     </div>
 );
 

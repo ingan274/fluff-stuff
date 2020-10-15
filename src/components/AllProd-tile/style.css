@@ -1,0 +1,57 @@
+:root {
+    --title-font: 'Kavoon', cursive;
+    --body-font:'Poppins', sans-serif;
+    --bold: 700;
+}
+
+/* Text of tile */
+.desc {
+    font-family: var(--body-font);
+    color: #797979;
+    font-size: 13px;
+}
+
+.prodTitle {
+    font-family: var(--title-font);
+    font-size: 70px;
+    color: #2A379D;
+    margin-bottom: 15px;
+}
+
+
+/* Product images */
+
+.bed {
+    background-size: 110%;
+    background-position: 50% 80%;
+}
+
+.couch {
+    background-size: cover;
+    background-position: center;
+}
+
+.round {
+    background-size: cover;
+    background-position: left;
+}
+
+.pouf {
+    background-size: 150%;
+    background-position: 95% 92%;
+}
+
+.shopBtn {
+    background-color: white;
+    color: #EDB678;
+    border: 3px solid #EDB678;
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 30px;
+}
+
+.shopBtn:hover {
+    background-color: #EDB678;
+    color: white;
+}
