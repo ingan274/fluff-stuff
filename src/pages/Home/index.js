@@ -4,18 +4,12 @@ import {
 } from "react-router-dom";
 import "./style.css";
 import homeBanner from "../../assets/imgs/home/jonathan-borba-_peqvnRW7tc-unsplash.jpg"
-import Grid from '@material-ui/core/Grid';
-import Container from "../../components/Container";
-import Nav from "../../components/Nav";
+import { Grid, Box } from '@material-ui/core';
+import BannerImg from "../../components/bannerImg"
 
 const Home = props => (
-    <Container>
-        <Nav />
-        <Grid container justify="center" className='photo' style={{ backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(${homeBanner})` }}>
-            <Grid item xs={12} className='bannerText'>pillows designed around you</Grid>
-            <Link item to="/shop" className='homeButtonCTA'>lets get comfy</Link>
-
-        </Grid>
+    <Box>
+        <BannerImg bannerSrc={`${homeBanner}`} bannerText="pillows designed around you" ctaButton="true" bannerSize="cover" bannerPositon="center" />
 
         <Grid container className='PColors'>
             <Grid item xs={12} className='title'>colors</Grid>
@@ -97,11 +91,8 @@ const Home = props => (
             justify="center">
             <Link to="/shop" className='homeButtonCTA bottom-button'>shop all pillows</Link>
         </Grid>
-
-
-
         <footer></footer>
-    </Container>
+    </Box>
 )
 
 

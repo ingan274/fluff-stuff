@@ -1,9 +1,7 @@
 import "./style.css";
 import React, { Component } from "react";
-import { Grid } from '@material-ui/core';
+import { Grid, Box } from '@material-ui/core';
 import "./style.css";
-import Container from "../../components/Container";
-import Nav from "../../components/Nav";
 
 class Contact extends Component {
     state = {
@@ -22,8 +20,7 @@ class Contact extends Component {
     };
 
     render = () => (
-        <Container>
-            <Nav />
+        <Box>
             <h1 className='pageHeader'>contact us</h1>
             <Grid container spacing={2} direction="row"
                 justify="space-between">
@@ -82,7 +79,7 @@ class Contact extends Component {
                     </div>
                 </Grid>
             </Grid>
-        </Container>
+        </Box>
     )
 }
 

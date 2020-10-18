@@ -1,17 +1,14 @@
 import React from "react";
 import "./style.css";
-import { Grid } from '@material-ui/core';
+import { Grid, Box } from '@material-ui/core';
 import Product from "../../components/AllProd-tile";
 import BedImg from "../../assets/imgs/morning-haze/annie-spratt-V-6bv_-LzOo-unsplash.jpg";
 import CouchImg from "../../assets/imgs/rainy-day/pesce-huang-OTR3YJiigkw-unsplash.jpg";
 import RoundImg from "../../assets/imgs/Denim/krisztina-papp-SR5Kdmk5W0o-unsplash.jpg";
 import PoufImg from "../../assets/imgs/school-special/minh-pham-OtXADkUh3-I-unsplash.jpg";
-import Container from "../../components/Container";
-import Nav from "../../components/Nav";
 
 const AllProd = props => (
-    <Container>
-        <Nav />
+    <Box>
         <Grid containter="true">
             <Grid item container className="prodLine" direction="row" justify="space-evenly">
                 <Grid item xs={6}><Product
@@ -52,7 +49,7 @@ const AllProd = props => (
                 /></Grid>
             </Grid>
         </Grid>
-    </Container>
+    </Box>
 )
 
 

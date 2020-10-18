@@ -6,7 +6,7 @@ import "./style.css";
 import logo from "../../assets/fullLogo.png"
 
 const MainNav = () => (
-        <nav className='nav row'>
+        <nav className='nav'>
           <div className='leftNav col-10'>
             <NavLink exact={true} to='/' ><img id='logo' src={logo} alt="fluff stuff logo" /></NavLink>
             <NavLink exact={true} to="/" activeClassName='selected' className='navigation right' id="home">home</NavLink>

@@ -1,16 +1,12 @@
 import React from "react";
 import "./style.css";
 import ArrowDropDownCircleRoundedIcon from '@material-ui/icons/ArrowDropDownCircleRounded';
-import Grid from '@material-ui/core/Grid';
-import Container from "../../components/Container";
-import Nav from "../../components/Nav"
+import { Grid, Box } from '@material-ui/core';
+import BannerImg from "../../components/bannerImg"
 
 const About = props => (
-    <Container>
-        <Nav />
-        <Grid container alignItems="center" className='photo'>
-            <Grid item className='phototext'>fluff stuff makes pillows that match your every stage of life</Grid>
-        </Grid>
+    <Box>
+        <BannerImg bannerSrc="https://images.unsplash.com/photo-1552650272-b8a34e21bc4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3033&q=80" bannerText="fluff stuff makes pillows that match your every stage of life" bannerSize="cover" bannerPosition="center" />
 
         <div className="stage">
             <h1 className="aboutScroll bounce-1"><ArrowDropDownCircleRoundedIcon /></h1>
@@ -74,8 +70,7 @@ const About = props => (
 
         </Grid>
         <footer></footer>
-
-    </Container>
+    </Box>
 );
 
 export default About;

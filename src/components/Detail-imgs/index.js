@@ -6,8 +6,8 @@ import "./style.css";
 class ProdImgs extends Component {
 
     render = () => {
-        const main = {
-            background: 'url("' + this.props.imgSrc + '")',
+        let main = {
+            background: `url('${this.props.imgSrc}')`,
             backgroundSize: `${this.props.imgSize}`,
             backgroundPosition: `${this.props.imgPosition}`
         };
@@ -39,12 +39,12 @@ class ProdImgs extends Component {
         return (
             <Box className='allProdImages' mb={3}>
                 <Grid container justify="center">
-                    <Box mx={1} item="true" className='currentImg' style={main}></Box>
+                    <Box  item="true" mx={1} className='currentImg' style={main}></Box>
                     <Grid item container display="row" className='otherImgs'>
-                        <Grid item xs={3} onClick={this.props.handleClick}><Box item="true" my={2} mx={1} className='otherimg img1' id="1" style={photo1}></Box></Grid>
-                        <Grid item xs={3} onClick={this.props.handleClick}><Box item="true" my={2} mx={1}   className='otherimg img2' id="2" style={photo2}></Box></Grid>
-                        <Grid item xs={3} onClick={this.props.handleClick}><Box item="true" my={2} mx={1} className='otherimg img3' id="3" style={photo3}></Box></Grid>
-                        <Grid item xs={3} onClick={this.props.handleClick}><Box item="true" my={2} mx={1}  className='otherimg img4'id="4" style={photo4}></Box></Grid>
+                        <Grid item xs={3}><Box item="true" my={2} mx={1} className='otherimg img1' id="1" style={photo1} onClick={this.props.handleClick}></Box></Grid>
+                        <Grid item xs={3} ><Box item="true" my={2} mx={1} className='otherimg img2' id="2" style={photo2} onClick={this.props.handleClick}></Box></Grid>
+                        <Grid item xs={3} ><Box item="true" my={2} mx={1} className='otherimg img3' id="3" style={photo3} onClick={this.props.handleClick}></Box></Grid>
+                        <Grid item xs={3}><Box item="true" my={2} mx={1} className='otherimg img4' id="4" style={photo4} onClick={this.props.handleClick}></Box></Grid>
                     </Grid>
                 </Grid>
             </Box>

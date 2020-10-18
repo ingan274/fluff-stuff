@@ -6,8 +6,6 @@ import {
 } from "react-router-dom";
 import Photos from "../../components/Detail-imgs";
 import Body from "../../components/Detail-body";
-import Container from "../../components/Container";
-import Nav from "../../components/Nav";
 import SubNav from "../../components/SubNav";
 
 
@@ -15,9 +13,9 @@ class Detail extends Component {
 
     constructor(props) {
         super(props);
-        const { handle } = this.props.match.params
+        const { product } = this.props.match.params;
 
-        if (handle === "bed-pillow") {
+        if (product === "bed-pillow") {
             this.state = {
                 product: 'bed pillow',
                 price: '$32.99',
@@ -27,27 +25,33 @@ class Detail extends Component {
                 reco: "Bed, Lumbar, Bench",
                 size: "18' x 18'",
 
-                imgSrc: '',
-                imgSize: '',
-                imgPosition: '',
-                imgSrc1: '',
-                imgSize1: '',
-                imgPosition1: '',
-                imgSrc2: '',
-                imgSize2: '',
+                imgSrc: '../../assets/imgs/school-special/minh-pham-OtXADkUh3-I-unsplash.jpg',
+                imgSize: '230%',
+                imgPosition: '90% 50%',
+                imgSrc1: '../../assets/imgs/school-special/minh-pham-OtXADkUh3-I-unsplash.jpg',
+                imgSize1: '230%',
+                imgPosition1: '90% 50%',
+                imgSrc2: '../../assets/imgs/Denim/christopher-jolly-IZkuoaXqTS8-unsplash.jpg',
+                imgSize2: '100%',
                 imgPosition2: '',
-                imgSrc3: '',
+                imgSrc3: '../../assets/',
                 imgSize3: '',
                 imgPosition3: '',
-                imgSrc4: '',
+                imgSrc4: '../../assets/',
                 imgSize4: '',
                 imgPosition4: '',
 
                 detail: false,
                 care: false,
                 ship: false,
+
+                mainImage: '1',
+                quant: 1,
+                color: "",
+                fill: ""
+
             }
-        } else if (handle === "couch-pillow") {
+        } else if (product === "couch-pillow") {
             this.state = {
                 product: 'couch pillow',
                 price: '$42.99',
@@ -58,10 +62,10 @@ class Detail extends Component {
                 size: "25' x 25'",
 
                 imgSrc: '../../assets/imgs/morning-haze/olena-sergienko-aKIxt1mGcRU-unsplash.jpg',
-                imgSize: 'cover',
+                imgSize: '110%',
                 imgPosition: 'bottom',
                 imgSrc1: '../../assets/imgs/morning-haze/olena-sergienko-aKIxt1mGcRU-unsplash.jpg',
-                imgSize1: 'cover',
+                imgSize1: '110%',
                 imgPosition1: 'bottom',
                 imgSrc2: '../../assets/imgs/Denim/taylor-simpson-6JGJjb49PqA-unsplash.jpg',
                 imgSize2: '230%',
@@ -70,14 +74,19 @@ class Detail extends Component {
                 imgSize3: '150%',
                 imgPosition3: 'center',
                 imgSrc4: '../../assets/imgs/rainy-day/pesce-huang-L0_i0ClBM8E-unsplash.jpg',
-                imgSize4: 'cover',
-                imgPosition4: 'center',
+                imgSize4: '140%',
+                imgPosition4: '80% 40%',
 
                 detail: false,
                 care: false,
                 ship: false,
+
+                mainImage: '1',
+                quant: 1,
+                color: "",
+                fill: ""
             }
-        } else if (handle === "round-pillow") {
+        } else if (product === "round-pillow") {
             this.state = {
                 product: 'round pillow',
                 price: '$30.99',
@@ -106,8 +115,13 @@ class Detail extends Component {
                 detail: false,
                 care: false,
                 ship: false,
+
+                mainImage: '1',
+                quant: 1,
+                color: "",
+                fill: ""
             }
-        } else if (handle === "floor-pouf-pillow") {
+        } else if (product === "floor-pouf-pillow") {
             this.state = {
                 product: 'floor pouf pillow',
                 price: '$45.99',
@@ -136,6 +150,11 @@ class Detail extends Component {
                 detail: false,
                 care: false,
                 ship: false,
+
+                mainImage: '1',
+                quant: 1,
+                color: "",
+                fill: ""
             }
         }
     };
@@ -174,14 +193,49 @@ class Detail extends Component {
     };
 
     photoChange = (event) => {
+        const { id } = event.target;
 
-    }
+        if (id !== this.state.mainImage) {
+
+            if (id === '1') {
+                this.setState({
+                    imgSrc: this.state.imgSrc1,
+                    imgSize: this.state.imgSize1,
+                    imgPosition: this.state.imgPosition1,
+
+                    mainImage: "1"
+                })
+            } else if (id === '2') {
+                this.setState({
+                    imgSrc: this.state.imgSrc2,
+                    imgSize: this.state.imgSize2,
+                    imgPosition: this.state.imgPosition2,
+
+                    mainImage: "2"
+                })
+            } else if (id === '3') {
+                this.setState({
+                    imgSrc: this.state.imgSrc3,
+                    imgSize: this.state.imgSize3,
+                    imgPosition: this.state.imgPosition3,
+
+                    mainImage: "3"
+                })
+            } else if (id === '4') {
+                this.setState({
+                    imgSrc: this.state.imgSrc4,
+                    imgSize: this.state.imgSize4,
+                    imgPosition: this.state.imgPosition4,
+
+                    mainImage: "4"
+                })
+            }
+        };
+    };
 
 
     render = () => (
-
-        <Container>
-            <Nav />
+        <Box>
             <SubNav />
             <p className="pagePath"> <Link id="pathToAll" to='/shop'>All Products </Link>/ {this.state.product}</p>
             <Grid container direction="row" justify="space-around">
@@ -208,16 +262,6 @@ class Detail extends Component {
                     <Body
                         product={this.state.product}
                         price={this.state.price}
-                        description={this.state.description}
-
-                        detailC={this.state.detailC}
-                        detailO={this.state.detailO}
-
-                        careC={this.state.detailC}
-                        careO={this.state.detailO}
-
-                        shipC={this.state.detailC}
-                        shipO={this.state.detailO}
                     />
                     <Box mx={2}>
                         <Grid container direction="row" className="quantity">
@@ -228,7 +272,7 @@ class Detail extends Component {
                         <Box mb={1} mt={3} className='itemSelectTitle'>COLOR</Box>
                         <Grid container direction="row" alignItems="center" justify='space-around' className='coloroptions'>
                             <Grid item className='customColor'>
-                                <Box py={1} mx={2} className='textOpt colorSelect' defaultValue="ASS"> AFTER SCHOOL <br />SPECIAL</Box>
+                                <Box py={2} mx={2} className='textOpt colorSelect' defaultValue="ASS"> AFTER SCHOOL SPECIAL</Box>
                             </Grid>
                             <Grid item className='customColor'>
                                 <Box py={2} mx={2} className='textOpt colorSelect' defaultValue="MH">MORNING HAZE</Box>
@@ -243,20 +287,20 @@ class Detail extends Component {
                         <Box mb={1} mt={3} className='itemSelectTitle'>PILLOW FILL</Box>
                         <Grid container direction="row" alignItems="center" justify='space-around' className='filloptions'>
                             <Grid item className='customFill'>
-                                <Box py={2} px={1} mx={1} className='textOpt fillSelect' defaultValue="RD">DUCK DOWN</Box>
+                                <Box py={2} px={2} mx={1} className='textOpt fillSelect' defaultValue="RD">DUCK DOWN</Box>
                             </Grid>
                             <Grid item className='customFill'>
-                                <Box py={2} px={1} mx={1} className='textOpt fillSelect' defaultValue="HPB">HYPOALLERGENIC POLY-BLEND</Box>
+                                <Box py={2} px={2} mx={1} className='textOpt fillSelect' defaultValue="HPB">HYPOALLERGENIC POLY-BLEND</Box>
                             </Grid>
                             <Grid item className='customFill'>
-                                <Box py={2} px={1} mx={1} className='textOpt fillSelect' defaultValue="MF">MEMORY FOAM</Box>
+                                <Box py={2} px={2} mx={1} className='textOpt fillSelect' defaultValue="MF">MEMORY FOAM</Box>
                             </Grid>
                         </Grid>
                     </Box>
                     {this.details()}
                 </Grid>
             </Grid>
-        </Container>
+        </Box>
     )
 }
 
