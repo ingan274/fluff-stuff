@@ -1,0 +1,37 @@
+:root {
+    --title-font: 'Kavoon', cursive;
+    --body-font:'Poppins', sans-serif;
+    --bold: 700;
+}
+
+.nav{
+    margin: 30px 0px 40px;
+  }
+  
+  #logo {
+    height: 70px;
+    margin-right: 15px;
+  }
+  
+  .navigation {
+    font-family: var(--title-font);
+    font-size: 15px;
+    color: #A8A8A8;
+    text-align: center;
+    align-self: center;
+  }
+  
+  .right {
+    margin: 3px 30px;
+  }
+  
+  #shop:hover, #about:hover, #contact:hover, .cart:hover {
+    color: #455274;
+  }
+  
+  .selected {
+    color: #455274;
+    border-bottom: 3px solid #455274;
+    transition: border-bottom .5s ease-in-out;
+  }
+  

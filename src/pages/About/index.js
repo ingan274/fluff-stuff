@@ -2,9 +2,12 @@ import React from "react";
 import "./style.css";
 import ArrowDropDownCircleRoundedIcon from '@material-ui/icons/ArrowDropDownCircleRounded';
 import Grid from '@material-ui/core/Grid';
+import Container from "../../components/Container";
+import Nav from "../../components/Nav"
 
 const About = props => (
-    <div>
+    <Container>
+        <Nav />
         <Grid container alignItems="center" className='photo'>
             <Grid item className='phototext'>fluff stuff makes pillows that match your every stage of life</Grid>
         </Grid>
@@ -24,8 +27,9 @@ const About = props => (
                     Learn more below...
         </p>
         </div>
+
         <Grid container
-            justify="center" 
+            justify="center"
             spacing={5}
             className="fillDetails">
             <Grid item container
@@ -66,11 +70,12 @@ const About = props => (
                     When pressure is applied along with heat, the foam reshapes itself to conform to the object. This is
                     why memory foam pillows shape to the head and neck better than other pillows.</p>
                 </Grid>
-            </Grid> 
-           
+            </Grid>
+
         </Grid>
         <footer></footer>
-    </div>
+
+    </Container>
 );
 
 export default About;

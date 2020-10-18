@@ -1,0 +1,41 @@
+:root {
+    --title-font: 'Kavoon', cursive;
+    --body-font:'Poppins', sans-serif;
+    --bold: 700;
+}
+/* product Text */
+
+.prodName {
+    color: #2A379D;
+    font-size: 50px;
+    font-family: var(--title-font);
+    margin-top: 10px;
+}
+
+.costAdd {
+    margin-bottom: 10px;
+}
+
+.cost {
+    color: #5C64A2;
+    font-size: 30px;
+    font-weight: var(--bold);
+    font-family: var(--body-font);
+    text-align: center;
+}
+
+.addToCart {
+    background-color: #EDB678;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px 10px;
+    color: white;
+    font-family: var(--body-font);
+    font-weight: var(--bold);
+}
+
+.addToCart:hover {
+    color: white;
+    background-color: #EDB678;
+}
+

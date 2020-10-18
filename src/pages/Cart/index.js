@@ -2,8 +2,6 @@ import "./style.css";
 import React, { Component } from "react";
 import { Grid } from '@material-ui/core';
 import "./style.css";
-import Container from "../../components/Container";
-import Nav from "../../components/Nav";
 
 class Contact extends Component {
     state = {
@@ -22,28 +20,27 @@ class Contact extends Component {
     };
 
     render = () => (
-        <Container>
-            <Nav />
+        <div>
             <h1 className='pageHeader'>contact us</h1>
             <Grid container spacing={2} direction="row"
                 justify="space-between">
                 <Grid item xs={6} className='contact'>
                     <form>
-                        <label htmlFor="email">Email</label><br />
+                        <label for="email">Email</label><br />
                         <input type="text" id="email" name="email" required />
 
                         <Grid container direction="row" justify="space-around" spacing={3}>
                             <div className='nameinput'>
-                                <label htmlFor="fname">First name</label><br />
+                                <label for="fname">First name</label><br />
                                 <input type="text" id="fname" name="fname" required />
                             </div>
                             <div className='nameinput'>
-                                <label htmlFor="lname">Last name</label><br />
+                                <label for="lname">Last name</label><br />
                                 <input type="text" id="lname" name="lname" required />
                             </div>
                         </Grid>
 
-                        <label htmlFor="category" className='category'>Category</label><br />
+                        <label for="category" className='category'>Category</label><br />
                         <select id="category" name="category">
                             <option>Select</option>
                             <option value="general">General</option>
@@ -54,7 +51,7 @@ class Contact extends Component {
                         <br />
 
 
-                        <label htmlFor="message">Message</label><br />
+                        <label for="message">Message</label><br />
                         <textarea id="message" name="message" rows="7" cols="30"></textarea>
 
                         <input className="submit" type="submit" value="Submit" />
@@ -82,7 +79,7 @@ class Contact extends Component {
                     </div>
                 </Grid>
             </Grid>
-        </Container>
+        </div>
     )
 }
 

@@ -5,9 +5,12 @@ import {
 import "./style.css";
 import homeBanner from "../../assets/imgs/home/jonathan-borba-_peqvnRW7tc-unsplash.jpg"
 import Grid from '@material-ui/core/Grid';
+import Container from "../../components/Container";
+import Nav from "../../components/Nav";
 
 const Home = props => (
-    <div>
+    <Container>
+        <Nav />
         <Grid container justify="center" className='photo' style={{ backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(${homeBanner})` }}>
             <Grid item xs={12} className='bannerText'>pillows designed around you</Grid>
             <Link item to="/shop" className='homeButtonCTA'>lets get comfy</Link>
@@ -98,7 +101,7 @@ const Home = props => (
 
 
         <footer></footer>
-    </div>
+    </Container>
 )
 
 

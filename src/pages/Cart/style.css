@@ -37,7 +37,6 @@ input, #category {
     height: 36px;
     padding: 3px 15px;
     width: 100%;
-    background-color: white;
 }
 
 .category:after {

@@ -4,9 +4,3 @@
     --bold: 700;
 }
 
-.pagePath {
-    font-family: var(--body-font);
-    color: #455274;
-    font-size: 10px;
-    text-transform: uppercase;
-}
