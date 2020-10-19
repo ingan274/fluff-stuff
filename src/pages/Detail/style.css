@@ -59,10 +59,16 @@
     background-color: #EDB678;
 }
 
+.selectedColor, .selectedFill{
+    background-color: #EDB678;
+    color: white;
+}
+
 .detailLine {
     border-top: 2px solid #A8A8A8;
     margin: 3px;
 }
+
 
 /* Detail dropdown */
 .dropdownTitle {
@@ -89,14 +95,4 @@
 
 .details {
     margin-top: 30px;
-}
-
-.selectedColor {
-    color: white;
-    background-color: #EDB678;
-}
-
-.selectedFill{
-    color: white;
-    background-color: #EDB678;
 }

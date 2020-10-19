@@ -16,7 +16,7 @@ class Tips extends Component {
 
 
         return (
-            <Box mt={2} className='product-notes' style={style} >
+            <Box mt={1} className='product-notes' style={style} >
                 <div id='product-stat'>
                     <h4 id='note-title'>fluff stuff's notes</h4>
                     <table id='notes-table'>

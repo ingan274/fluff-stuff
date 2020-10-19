@@ -11,6 +11,8 @@ import Tips from "../../components/Detail-tips";
 
 
 class Detail extends Component {
+
+    // Sets states depending on the product path it lands on
     constructor(props) {
         super(props);
         const { product } = this.props.match.params;
@@ -52,7 +54,14 @@ class Detail extends Component {
                 mainImage: '1',
                 quant: 1,
                 color: "",
-                fill: ""
+                ASS: false,
+                MH: false,
+                CD: false,
+                RD: false,
+                fill: "",
+                DD: false,
+                HPB: false,
+                MF: false,
 
             }
         } else if (product === "couch-pillow") {
@@ -92,7 +101,14 @@ class Detail extends Component {
                 mainImage: '1',
                 quant: 1,
                 color: "",
-                fill: ""
+                ASS: false,
+                MH: false,
+                CD: false,
+                RD: false,
+                fill: "",
+                DD: false,
+                HPB: false,
+                MF: false
             }
         } else if (product === "round-pillow") {
             this.state = {
@@ -131,7 +147,14 @@ class Detail extends Component {
                 mainImage: '1',
                 quant: 1,
                 color: "",
-                fill: ""
+                ASS: false,
+                MH: false,
+                CD: false,
+                RD: false,
+                fill: "",
+                DD: false,
+                HPB: false,
+                MF: false
             }
         } else if (product === "floor-pouf-pillow") {
             this.state = {
@@ -170,11 +193,19 @@ class Detail extends Component {
                 mainImage: '1',
                 quant: 1,
                 color: "",
-                fill: ""
+                ASS: false,
+                MH: false,
+                CD: false,
+                RD: false,
+                fill: "",
+                DD: false,
+                HPB: false,
+                MF: false
             }
         }
     };
 
+    // Sets states of user switches to another product
     componentDidUpdate = () => {
         const { product } = this.props.match.params;
 
@@ -321,7 +352,7 @@ class Detail extends Component {
                     imgSize4: '120%',
                     imgPosition4: '100% 93%',
                     tipsImg: "../../assets/imgs/rainy-day/julien-lanoy-jV5Jqlgp4h0-unsplash.jpg",
-                tipsImgSize: "100%",
+                    tipsImgSize: "100%",
 
                     detail: false,
                     care: false,
@@ -336,6 +367,7 @@ class Detail extends Component {
         }
     }
 
+    // Checks to see the state of the Dropdowns (see if its open or closed)
     details = () => {
         if (this.state.detail) {
             return (
@@ -428,24 +460,25 @@ class Detail extends Component {
     };
 
 
+    // Click interaction to change state of what is open and closed
     openMoreInformation = (item) => {
         if (item === "detail") {
             this.setState({
-                detail: !this.state.detail,
+                detail: true,
                 care: false,
                 ship: false,
             })
         } else if (item === "care") {
             this.setState({
                 detail: false,
-                care: !this.state.care,
+                care: true,
                 ship: false,
             })
         } else if (item === "ship") {
             this.setState({
                 detail: false,
                 care: false,
-                ship: !this.state.ship,
+                ship: true,
             })
         } else {
             this.setState({
@@ -457,6 +490,8 @@ class Detail extends Component {
 
     }
 
+    // changes the sources of the main image when other images are selected 
+    // Also tracks which image it is on
     photoChange = (event) => {
         const { id } = event.target;
 
@@ -498,6 +533,71 @@ class Detail extends Component {
         };
     };
 
+    // tracks to see what color is selected by user
+    selectColor = (event) => {
+        // console.log(event.target.attributes.name.value)
+        let colorSelected = event.target.attributes.name.value;
+        this.setState({ color: colorSelected })
+
+        if (colorSelected === "ASS") {
+            this.setState({
+                ASS: true,
+                MH: false,
+                CD: false,
+                RD: false,
+            })
+        } else if (colorSelected === "MH") {
+            this.setState({
+                ASS: false,
+                MH: true,
+                CD: false,
+                RD: false,
+            })
+        } else if (colorSelected === "CD") {
+            this.setState({
+                ASS: false,
+                MH: false,
+                CD: true,
+                RD: false,
+            })
+        } else if (colorSelected === "RD") {
+            this.setState({
+                ASS: false,
+                MH: false,
+                CD: false,
+                RD: true,
+            })
+        }
+
+        
+    }
+
+    selectFill = (event) => {
+        // console.log(event.target.attributes.name.value)
+        let fillSelected = event.target.attributes.name.value;
+        this.setState({ fill: fillSelected })
+
+        if (fillSelected === "DD") {
+            this.setState({
+                DD: true,
+                HPB: false,
+                MF: false
+            })
+        } else if (fillSelected === "HPB") {
+            this.setState({
+                DD: false,
+                HPB: true,
+                MF: false
+            })
+        } else if (fillSelected === "MF") {
+            this.setState({
+                DD: false,
+                HPB: false,
+                MF: true
+            })
+        }
+    }
+
 
     render = () => (
         <Box>
@@ -536,41 +636,41 @@ class Detail extends Component {
                         </Grid>
                         <Box mb={1} mt={3} className='itemSelectTitle'>COLOR</Box>
                         <Grid container direction="row" alignItems="center" justify='space-around' className='coloroptions'>
-                            <Grid item className='customColor'>
-                                <Box py={2} mx={2} className='textOpt colorSelect' defaultValue="ASS"> AFTER SCHOOL SPECIAL</Box>
+                            <Grid item className={`customColor ${this.state.ASS ? "selectedColor" : ""}`} >
+                                <Box py={2} mx={2} className="textOpt colorSelect" name="ASS" onClick={this.selectColor}> AFTER SCHOOL SPECIAL</Box>
                             </Grid>
-                            <Grid item className='customColor'>
-                                <Box py={2} mx={2} className='textOpt colorSelect' defaultValue="MH">MORNING HAZE</Box>
+                            <Grid item className={`customColor ${this.state.MH ? "selectedColor" : ""}`} >
+                                <Box py={2} mx={2} className="textOpt colorSelect" name="MH" onClick={this.selectColor} >MORNING HAZE</Box>
                             </Grid>
-                            <Grid item className='customColor'>
-                                <Box py={2} mx={2} className='textOpt colorSelect' defaultValue="CD">COZY DEMIN</Box>
+                            <Grid item className={`customColor ${this.state.CD ? "selectedColor" : ""}`} >
+                                <Box py={2} mx={2} className="textOpt colorSelect" name="CD" onClick={this.selectColor}  >COZY DEMIN</Box>
                             </Grid>
-                            <Grid item className='customColor'>
-                                <Box py={2} mx={2} className='textOpt colorSelect' defaultValue="RD">RAINY DAY</Box>
+                            <Grid item className={`customColor ${this.state.RD ? "selectedColor" : ""}`}>
+                                <Box py={2} mx={2} className="textOpt colorSelect" name="RD" onClick={this.selectColor} >RAINY DAY</Box>
                             </Grid>
                         </Grid>
                         <Box mb={1} mt={3} className='itemSelectTitle'>PILLOW FILL</Box>
                         <Grid container direction="row" alignItems="center" justify='space-around' className='filloptions'>
-                            <Grid item className='customFill'>
-                                <Box py={2} px={2} mx={1} className='textOpt fillSelect' defaultValue="RD">DUCK DOWN</Box>
+                            <Grid item className={`customFill ${this.state.DD ? "selectedFill" : ""}`} >
+                                <Box py={2} px={2} mx={1} className={`textOpt fillSelect ${this.state.RD ? "selectedFill" : ""}`} name="RD">DUCK DOWN</Box>
                             </Grid>
-                            <Grid item className='customFill'>
-                                <Box py={2} px={2} mx={1} className='textOpt fillSelect' defaultValue="HPB">HYPOALLERGENIC POLY-BLEND</Box>
+                            <Grid item className={`customFill ${this.state.HPB ? "selectedFill" : ""}`}>
+                                <Box py={2} px={2} mx={1} className={`textOpt fillSelect ${this.state.HPB ? "selectedFill" : ""}`} name="HPB">HYPOALLERGENIC POLY-BLEND</Box>
                             </Grid>
-                            <Grid item className='customFill'>
-                                <Box py={2} px={2} mx={1} className='textOpt fillSelect' defaultValue="MF">MEMORY FOAM</Box>
+                            <Grid item className={`customFill ${this.state.MF ? "selectedFill" : ""}`}>
+                                <Box py={2} px={2} mx={1} className={`textOpt fillSelect ${this.state.MF ? "selectedFill" : ""}`} name="MF">MEMORY FOAM</Box>
                             </Grid>
                         </Grid>
                     </Box>
                     {this.details()}
                 </Grid>
             </Grid>
-            <Tips 
-            size={this.state.size}
-            reco={this.state.reco}
-            washShort={this.state.washShort}
-            tipsImg={this.state.tipsImg}
-            tipsImgSize = {this.state.tipsImgSize}
+            <Tips
+                size={this.state.size}
+                reco={this.state.reco}
+                washShort={this.state.washShort}
+                tipsImg={this.state.tipsImg}
+                tipsImgSize={this.state.tipsImgSize}
             />
             <footer></footer>
         </Box>
