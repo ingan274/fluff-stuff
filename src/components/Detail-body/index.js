@@ -7,9 +7,9 @@ import "./style.css";
 
 class ProdTile extends Component {
 
-    componentDidUpdate = () => {
-        window.location.reload()
-    }
+    // componentDidUpdate = () => {
+    //     window.location.reload()
+    // }
 
     render = () => {
         return (
