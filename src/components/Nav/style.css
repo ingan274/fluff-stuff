@@ -1,8 +1,3 @@
-:root {
-    --title-font: 'Kavoon', cursive;
-    --body-font:'Poppins', sans-serif;
-    --bold: 700;
-}
 
 .nav{
     margin: 25px 0px 30px;
@@ -24,8 +19,12 @@
   .right {
     margin: 3px 30px;
   }
+
+  .heart, .cart {
+    margin: 0px 30px;
+  }
   
-  #shop:hover, #about:hover, #contact:hover, .cart:hover {
+  #shop:hover, #about:hover, #contact:hover, .cart:hover,  .heart:hover {
     color: #455274;
   }
   
@@ -34,4 +33,5 @@
     border-bottom: 3px solid #455274;
     transition: border-bottom .5s ease-in-out;
   }
+
   

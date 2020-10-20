@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 import { Grid, Box } from '@material-ui/core';
 import Product from "../../components/AllProd-tile";
 import BedImg from "../../assets/imgs/morning-haze/annie-spratt-V-6bv_-LzOo-unsplash.jpg";

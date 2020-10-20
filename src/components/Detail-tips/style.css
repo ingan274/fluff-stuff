@@ -1,9 +1,3 @@
-:root {
-    --title-font: 'Kavoon', cursive;
-    --body-font:'Poppins', sans-serif;
-    --bold: 700;
-}
-
 #product-stat{
     position: absolute;
     top: 80px;

@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import "./style.css";
 
-const SubNav = (props) => (
+const SubNav = () => (
     <nav>
       <Grid container display="row" spacing={3} justify="center">
         <Grid item >
