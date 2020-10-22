@@ -11,20 +11,6 @@
     color: #455274;
 }
 
-.quantarrow {
-    margin: 3px 0px;
-    color: #EDB678;
-}
-
-.quant {
-    border: 1px solid #C4C4C4;
-    text-align: center;
-    font-family: var(--body-font);
-    border-radius: 5px;
-    width: 15%;
-    margin: 0px 10px;
-}
-
 .itemSelectTitle {
     margin-top: 20px;
     font-size: 15px;

@@ -11,12 +11,10 @@ import Tips from "../../components/Detail-tips";
 
 
 class Detail extends Component {
-
     // Sets states depending on the product path it lands on
     constructor(props) {
         super(props);
         const { product } = this.props.match.params;
-
         switch (product) {
             case ("bed-pillow"):
                 this.state = {
@@ -142,7 +140,7 @@ class Detail extends Component {
                     imgSize2: '130%',
                     imgPosition2: '70% 100%',
                     imgSrc3: '../../assets/imgs/school-special/susanna-marsiglia-9bPXsEgrdcg-unsplash.jpg',
-                    imgSize3: '200%',
+                    imgSize3: '201%',
                     imgPosition3: '50% 30%',
                     imgSrc4: '../../assets/imgs/school-special/susanna-marsiglia-9bPXsEdegyt-unsplash.jpg',
                     imgSize4: '250%',
@@ -223,8 +221,9 @@ class Detail extends Component {
         }
     };
 
-    // Sets states of user switches to another product
+    // Update when -> user switches to another product
     componentDidUpdate = () => {
+
         const { product } = this.props.match.params;
 
         if (product !== this.state.page) {
@@ -272,7 +271,6 @@ class Detail extends Component {
                     DD: true,
                     HPB: false,
                     MF: false,
-                    favorited: false,
 
                 })
             } else if (product === "couch-pillow") {
@@ -319,7 +317,6 @@ class Detail extends Component {
                     DD: true,
                     HPB: false,
                     MF: false,
-                    favorited: false,
                 })
             } else if (product === "round-pillow") {
                 this.setState({
@@ -365,7 +362,6 @@ class Detail extends Component {
                     DD: true,
                     HPB: false,
                     MF: false,
-                    favorited: false,
                 })
             } else if (product === "floor-pouf-pillow") {
                 this.setState({
@@ -411,7 +407,6 @@ class Detail extends Component {
                     DD: true,
                     HPB: false,
                     MF: false,
-                    favorited: false,
                 })
             }
         }
@@ -596,7 +591,7 @@ class Detail extends Component {
                 CD: false,
                 RD: false,
             }), function () {
-                this.favesUpdate()
+                this.favesUpdate();
             })
 
         } else if (colorSelected === "MH") {
@@ -606,7 +601,7 @@ class Detail extends Component {
                 CD: false,
                 RD: false,
             }), function () {
-                this.favesUpdate()
+                this.favesUpdate();
             })
         } else if (colorSelected === "CD") {
             this.setState(currentState => ({
@@ -615,7 +610,7 @@ class Detail extends Component {
                 CD: !currentState.CD,
                 RD: false,
             }), function () {
-                this.favesUpdate()
+                this.favesUpdate();
             })
         } else if (colorSelected === "RD") {
             this.setState(currentState => ({
@@ -624,10 +619,10 @@ class Detail extends Component {
                 CD: false,
                 RD: !currentState.RD,
             }), function () {
-                this.favesUpdate()
+                this.favesUpdate();
             })
         }
-    }
+    };
 
     // tracks to see what fill is selected by user
     selectFill = (event) => {
@@ -662,128 +657,170 @@ class Detail extends Component {
                 this.favesUpdate()
             })
         }
-    }
+    };
 
-    addItemToLocalStorage = (location) => {
-        let list = [];
+    // Adding favorited items and cart items to Local Storage
+    addItemToLocalStorage = (event) => {
+        let { location } = event.target.attributes;
+        // console.log(location)
+        const LSlocation = location.value;
+        let list = []
         const quant = this.state.quant;
         const type = this.state.product;
         const color = this.state.color;
         const fill = this.state.fill
 
-        const item = { quant: quant, type: type, color: color, fill: fill }
+        const item = { 'quant': quant, 'type': type, 'color': color, 'fill': fill }
 
-        if (JSON.parse(localStorage.getItem(location)) === null) {
+
+        if (JSON.parse(localStorage.getItem(LSlocation)) === null) {
             // Push the item into onto the array 'list'
             list.push(item);
             // Re-serialize the array back into a string and store it in localStorage
-            localStorage.setItem('Cart', JSON.stringify(list));
+            localStorage.setItem(LSlocation, JSON.stringify(list));
         } else {
-            list = JSON.parse(localStorage.getItem(location));
+            list = JSON.parse(localStorage.getItem(LSlocation));
             // Push the new item into list
             list.push(item);
             // Re-serialize the array back into a string and store it in localStorage
-            localStorage.setItem('Favorited', JSON.stringify(list));
+            localStorage.setItem(LSlocation, JSON.stringify(list));
         }
-    }
 
+        if (LSlocation === "Cart") {
+            console.log('click')
+            this.props.cartUpdate();
+        }
+
+        if (LSlocation === "Favorite") {
+            this.favesUpdate();
+        }
+
+    };
+
+    // See if the item was favorited in local storage
     favesUpdate = () => {
-        let list = [];
-        const quant = this.state.quant;
         const type = this.state.product;
         const color = this.state.color;
         const fill = this.state.fill
 
-        const item = { quant: quant, type: type, color: color, fill: fill }
-
-        if (JSON.parse(localStorage.getItem("Favorites")) === null) {
-            this.setState({favorited: false})
+        if (JSON.parse(localStorage.getItem("Favorite")) === null) {
+            this.setState({ favorited: false })
+            // console.log('running faves - null"')
         } else {
-            list = JSON.parse(localStorage.getItem("Favorites"));
-            let fave = list.filter(item)
-            console.log(fave)
+            let list = JSON.parse(localStorage.getItem("Favorite"));
+            let products = list.filter(items => items.type === type);
+            let colors = products.filter(items => items.color === color);
+            let fills = colors.filter(items => items.fill === fill);
+
+            if (products.length === 0 || colors.length === 0 || fills.length === 0) {
+                this.setState({ favorited: false })
+                // console.log('running faves - false')
+            } else if (fills) {
+                this.setState({ favorited: true })
+                // console.log('running faves - true')
+            }
+
+
         }
+
+
     }
 
-    render = () => (
-        <Box>
-            <SubNav />
-            <p className="pagePath"> <Link id="pathToAll" to='/shop'>All Products </Link>/ {this.state.product}</p>
-            <Grid container direction="row" justify="space-around">
-                <Grid item xs={5}>
-                    <Photos
-                        imgSrc={this.state.imgSrc}
-                        imgSize={this.state.imgSize}
-                        imgPosition={this.state.imgPosition}
-                        imgSrc1={this.state.imgSrc1}
-                        imgSize1={this.state.imgSize1}
-                        imgPosition1={this.state.imgPosition1}
-                        imgSrc2={this.state.imgSrc2}
-                        imgSize2={this.state.imgSize2}
-                        imgPosition2={this.state.imgPosition2}
-                        imgSrc3={this.state.imgSrc3}
-                        imgSize3={this.state.imgSize3}
-                        imgPosition3={this.state.imgPosition3}
-                        imgSrc4={this.state.imgSrc4}
-                        imgSize4={this.state.imgSize4}
-                        imgPosition4={this.state.imgPosition4}
-                        handleClick={this.photoChange} />
+    // change quantity of the item
+    changeQuantity = (event) => {
+        const change = event.target.attributes.name.value;
+        const up = this.state.quant + 1;
+        const down = this.state.quant - 1;
+
+        if (change === "up") {
+            this.setState({ quant: up })
+        } else if (change === "down" && down === 0) {
+            this.setState({ quant: 1 })
+        } else if (change === "down") {
+            this.setState({ quant: down })
+        }
+
+    };
+
+
+    render = () => {
+        return (
+            <Box>
+                <SubNav />
+                <p className="pagePath"> <Link id="pathToAll" to='/shop'>All Products </Link>/ {this.state.product}</p>
+                <Grid container direction="row" justify="space-around">
+                    <Grid item xs={5}>
+                        <Photos
+                            imgSrc={this.state.imgSrc}
+                            imgSize={this.state.imgSize}
+                            imgPosition={this.state.imgPosition}
+                            imgSrc1={this.state.imgSrc1}
+                            imgSize1={this.state.imgSize1}
+                            imgPosition1={this.state.imgPosition1}
+                            imgSrc2={this.state.imgSrc2}
+                            imgSize2={this.state.imgSize2}
+                            imgPosition2={this.state.imgPosition2}
+                            imgSrc3={this.state.imgSrc3}
+                            imgSize3={this.state.imgSize3}
+                            imgPosition3={this.state.imgPosition3}
+                            imgSrc4={this.state.imgSrc4}
+                            imgSize4={this.state.imgSize4}
+                            imgPosition4={this.state.imgPosition4}
+                            handleClick={this.photoChange} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Body
+                            product={this.state.product}
+                            price={this.state.price}
+                            addtoFavorites={this.addItemToLocalStorage}
+                            addtoCart={this.addItemToLocalStorage}
+                            favoritedText={this.state.favorited}
+                            changeQuant={this.changeQuantity}
+                            prodNum={this.state.quant}
+                        />
+                        <Box mx={2}>
+                            <Box mb={1} mt={3} className='itemSelectTitle'>COLOR</Box>
+                            <Grid container direction="row" alignItems="center" justify='space-around' className='coloroptions' >
+                                <Grid item className={`customColor ${this.state.ASS ? "selectedColor" : ""}`} >
+                                    <Box py={2} mx={2} className="textOpt colorSelect" name="ASS" onClick={this.selectColor}> AFTER SCHOOL SPECIAL</Box>
+                                </Grid>
+                                <Grid item className={`customColor ${this.state.MH ? "selectedColor" : ""}`} >
+                                    <Box py={2} mx={2} className="textOpt colorSelect" name="MH" onClick={this.selectColor} >MORNING HAZE</Box>
+                                </Grid>
+                                <Grid item className={`customColor ${this.state.CD ? "selectedColor" : ""}`} >
+                                    <Box py={2} mx={2} className="textOpt colorSelect" name="CD" onClick={this.selectColor}  >COZY DEMIN</Box>
+                                </Grid>
+                                <Grid item className={`customColor ${this.state.RD ? "selectedColor" : ""}`}>
+                                    <Box py={2} mx={2} className="textOpt colorSelect" name="RD" onClick={this.selectColor} >RAINY DAY</Box>
+                                </Grid>
+                            </Grid>
+                            <Box mb={1} mt={3} className='itemSelectTitle'>PILLOW FILL</Box>
+                            <Grid container direction="row" alignItems="center" justify='space-around' className='filloptions' >
+                                <Grid item className={`customFill ${this.state.DD ? "selectedFill" : ""}`} >
+                                    <Box py={2} px={2} mx={1} className="textOpt fillSelect" onClick={this.selectFill} name="DD">DUCK DOWN</Box>
+                                </Grid>
+                                <Grid item className={`customFill ${this.state.HPB ? "selectedFill" : ""}`}>
+                                    <Box py={2} px={2} mx={1} className="textOpt fillSelect" onClick={this.selectFill} name="HPB">HYPOALLERGENIC POLY-BLEND</Box>
+                                </Grid>
+                                <Grid item className={`customFill ${this.state.MF ? "selectedFill" : ""}`}>
+                                    <Box py={2} px={2} className="textOpt fillSelect" onClick={this.selectFill} name="MF">MEMORY FOAM</Box>
+                                </Grid>
+                            </Grid>
+                        </Box>
+                        {this.details()}
+                    </Grid>
                 </Grid>
-                <Grid item xs={6}>
-                    <Body
-                        product={this.state.product}
-                        price={this.state.price}
-                        favorited={this.state.addToFavorites}
-                        saveItem={this.addItemToLocalStorage}
-                        favoritedText={this.state.favorited}
-                    />
-                    <Box mx={2}>
-                        <Grid container direction="row" className="quantity">
-                            <p className='upQuant quantarrow'> &#x2B06;</p>
-                            <input className='quant' placeholder="1" />
-                            <p className='downQuant quantarrow'>&#x2B07;</p>
-                        </Grid>
-                        <Box mb={1} mt={3} className='itemSelectTitle'>COLOR</Box>
-                        <Grid container direction="row" alignItems="center" justify='space-around' className='coloroptions' >
-                            <Grid item className={`customColor ${this.state.ASS ? "selectedColor" : ""}`} >
-                                <Box py={2} mx={2} className="textOpt colorSelect" name="ASS" onClick={this.selectColor}> AFTER SCHOOL SPECIAL</Box>
-                            </Grid>
-                            <Grid item className={`customColor ${this.state.MH ? "selectedColor" : ""}`} >
-                                <Box py={2} mx={2} className="textOpt colorSelect" name="MH" onClick={this.selectColor} >MORNING HAZE</Box>
-                            </Grid>
-                            <Grid item className={`customColor ${this.state.CD ? "selectedColor" : ""}`} >
-                                <Box py={2} mx={2} className="textOpt colorSelect" name="CD" onClick={this.selectColor}  >COZY DEMIN</Box>
-                            </Grid>
-                            <Grid item className={`customColor ${this.state.RD ? "selectedColor" : ""}`}>
-                                <Box py={2} mx={2} className="textOpt colorSelect" name="RD" onClick={this.selectColor} >RAINY DAY</Box>
-                            </Grid>
-                        </Grid>
-                        <Box mb={1} mt={3} className='itemSelectTitle'>PILLOW FILL</Box>
-                        <Grid container direction="row" alignItems="center" justify='space-around' className='filloptions' >
-                            <Grid item className={`customFill ${this.state.DD ? "selectedFill" : ""}`} >
-                                <Box py={2} px={2} mx={1} className="textOpt fillSelect" onClick={this.selectFill} name="DD">DUCK DOWN</Box>
-                            </Grid>
-                            <Grid item className={`customFill ${this.state.HPB ? "selectedFill" : ""}`}>
-                                <Box py={2} px={2} mx={1} className="textOpt fillSelect" onClick={this.selectFill} name="HPB">HYPOALLERGENIC POLY-BLEND</Box>
-                            </Grid>
-                            <Grid item className={`customFill ${this.state.MF ? "selectedFill" : ""}`}>
-                                <Box py={2} px={2} className="textOpt fillSelect" onClick={this.selectFill} name="MF">MEMORY FOAM</Box>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                    {this.details()}
-                </Grid>
-            </Grid>
-            <Tips
-                size={this.state.size}
-                reco={this.state.reco}
-                washShort={this.state.washShort}
-                tipsImg={this.state.tipsImg}
-                tipsImgSize={this.state.tipsImgSize}
-            />
-            <footer></footer>
-        </Box>
-    )
+                <Tips
+                    size={this.state.size}
+                    reco={this.state.reco}
+                    washShort={this.state.washShort}
+                    tipsImg={this.state.tipsImg}
+                    tipsImgSize={this.state.tipsImgSize}
+                />
+                <footer></footer>
+            </Box>
+        )
+    }
 }
 
 export default Detail;

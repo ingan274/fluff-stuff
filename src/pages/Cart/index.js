@@ -5,19 +5,20 @@ import "./style.css";
 
 class Contact extends Component {
     state = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        category: '',
-        message: ''
+        cartTotal: 0,
+        ProductTotal: 0,
+        products: [],
     }
 
-    handleChange = (event) => {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        })
-    };
+    // get from local storage, sort, and reorgnize
+
+    // Remove item
+
+    // change quantity of item
+
+    // calculate total cost
+
+    // calculate subrtotal cost
 
     render = () => (
         <div>
