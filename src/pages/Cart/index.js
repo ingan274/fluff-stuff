@@ -1,7 +1,10 @@
 import "./style.css";
 import React, { Component } from "react";
-import { Grid } from '@material-ui/core';
-import "./style.css";
+import { Grid, Box } from '@material-ui/core';
+import ProductLine from "../../components/CartProduct";
+import {
+    Link,
+} from "react-router-dom";
 
 class Contact extends Component {
     state = {
@@ -11,8 +14,43 @@ class Contact extends Component {
     }
 
     // get from local storage, sort, and reorgnize
+    getAndReOrg = () => {
+        const type = ['bed pillow', 'couch pillow', 'round pillow', 'floor pouf pillow'];
+        const colors = ['ASS', 'MH', 'CD', 'RD'];
+        const fills= ['DD', 'HPB', 'MF']
 
-    // Remove item
+        if (JSON.parse(localStorage.getItem("Cart")) === null) {
+            return;
+        } else {
+            let reOrg = [];
+            let localStore = JSON.parse(localStorage.getItem("Cart"));
+
+            for (let pillow of type) {
+                let products = localStore.filter(items => items.type === pillow);
+                if (products.length === 0) { return }
+
+                for (let singleColor of colors) {
+                    let color = products.filter(items => items.color === singleColor);
+                    if (color.length === 0) { return }
+
+                    for (let singleFill of fills) {
+                        let fill = color.filter(items => items.fill === singleFill);
+                        if (fill.length === 0) { return }
+                        else if (fill.length > 1) {
+                            
+                        }
+
+                    }
+                }
+                
+                
+
+            }
+
+        }
+    }
+
+    // Remove item from cart
 
     // change quantity of item
 
@@ -20,66 +58,64 @@ class Contact extends Component {
 
     // calculate subrtotal cost
 
+    // If there are items, Else no cart message
+    cartItems = () => {
+        if (this.state.cartTotal === 0) {
+            return <Grid item container direction="column" justify="center" alignItems="center" id="emptyCart">
+                <Box item="true" className="emptyCartText">Your Cart is Empty</Box>
+                <Grid><Link to="/shop" className='cartButtonShop'>back to shop</Link></Grid>
+
+            </Grid>
+        } else {
+            return <ProductLine />
+        }
+
+    }
+
+    // checkout Button if items in cart
+    checkOutButton = () => {
+        if (this.state.cartTotal > 0) {
+            return <Link to="/checkout" className='checkout'>checkout</Link>
+        }
+    }
+
     render = () => (
         <div>
-            <h1 className='pageHeader'>contact us</h1>
-            <Grid container spacing={2} direction="row"
-                justify="space-between">
-                <Grid item xs={6} className='contact'>
-                    <form>
-                        <label for="email">Email</label><br />
-                        <input type="text" id="email" name="email" required />
+            <h1 className='pageHeader'>your cart</h1>
+            <Box className="cartDiv" p={3}>
+                <Grid container spacing={2} direction="column">
+                    <Grid item container className="cartHeader" directon="row">
+                        <Grid item xs={3} className="headerLabel">Item</Grid>
+                        <Grid item xs={3} className="headerLabel">Color + fill</Grid>
+                        <Grid item xs={2} className="headerLabel">Item Cost</Grid>
+                        <Grid item xs={2} className="headerLabel">Quantity</Grid>
+                        <Grid item xs={2} className="headerLabel">Product Total</Grid>
+                    </Grid>
 
-                        <Grid container direction="row" justify="space-around" spacing={3}>
-                            <div className='nameinput'>
-                                <label for="fname">First name</label><br />
-                                <input type="text" id="fname" name="fname" required />
-                            </div>
-                            <div className='nameinput'>
-                                <label for="lname">Last name</label><br />
-                                <input type="text" id="lname" name="lname" required />
-                            </div>
+                    {this.cartItems()}
+
+                    <Grid item container className="cartTotal" directon="row">
+                        <Grid item xs={9} ></Grid>
+                        <Grid container item xs={3} direction='column' className="totalArea">
+                            <Grid item container direction="row" className="total prodTotal" justify='space-between'>
+                                <Box item="true" className='totalLabel'>Subtotal:</Box>
+                                <Box item="true" className='totalCostNum'>$00.00</Box>
+                            </Grid>
+                            <Grid item container direction="row" className="total tax" justify='space-between'>
+                                <Box item="true" className='totalLabel'>tax:</Box>
+                                <Box item="true" className='totalCostNum'>$0.00</Box>
+                            </Grid>
+                            <Grid item container direction="row" className="total grandTotal" justify='space-between'>
+                                <Box item="true" className='totalLabel'>Total:</Box>
+                                <Box item="true" className='totalCostNum badTotal'>$00.00</Box>
+                            </Grid>
+                            <Grid item>
+                                {this.checkOutButton()}
+                            </Grid>
                         </Grid>
-
-                        <label for="category" className='category'>Category</label><br />
-                        <select id="category" name="category">
-                            <option>Select</option>
-                            <option value="general">General</option>
-                            <option value="question">Question</option>
-                            <option value="support">Support</option>
-                            <option value="Wholesale">Wholesale/Partnerships</option>
-                        </select>
-                        <br />
-
-
-                        <label for="message">Message</label><br />
-                        <textarea id="message" name="message" rows="7" cols="30"></textarea>
-
-                        <input className="submit" type="submit" value="Submit" />
-                    </form>
+                    </Grid>
                 </Grid>
-                <Grid item xs={5} className='contactInfo'>
-                    <div className='location'>
-                        <h3 className='infoTitle'>locaton</h3>
-                        <p className='information'>123 Somewhere St.<br />Pittsburgh, PA 15213</p>
-                        <p className='information'><span className='bold'>Monday - Saturday</span><br /> 8:00AM - 9:00PM EST</p>
-
-
-
-                    </div>
-
-                    <div className='phoneNumber'>
-                        <h3 className='infoTitle'>phone number</h3>
-                        <p className='information'>
-                            <span className='bold'>Customer Service:</span><br />+1 (123) 345 - 5678</p>
-
-                        <p className='information'>
-                            <span className='bold'>Wholesale/Partnerships</span><br />+1 (901) 123 - 3456</p>
-
-
-                    </div>
-                </Grid>
-            </Grid>
+            </Box>
         </div>
     )
 }

@@ -21,9 +21,13 @@ class Contact extends Component {
 
     render = () => (
         <Box>
+            {/* Title */}
             <h1 className='pageHeader'>contact us</h1>
+
             <Grid container spacing={2} direction="row"
                 justify="space-between">
+
+                {/* Contact Form */}
                 <Grid item xs={6} className='contact'>
                     <form>
                         <label htmlFor="email">Email</label><br />
@@ -57,14 +61,13 @@ class Contact extends Component {
                         <input className="submit" type="submit" value="Submit" />
                     </form>
                 </Grid>
+
+                {/* Contact Info - static */}
                 <Grid item xs={5} className='contactInfo'>
                     <div className='location'>
                         <h3 className='infoTitle'>locaton</h3>
                         <p className='information'>123 Somewhere St.<br />Pittsburgh, PA 15213</p>
                         <p className='information'><span className='bold'>Monday - Saturday</span><br /> 8:00AM - 9:00PM EST</p>
-
-
-
                     </div>
 
                     <div className='phoneNumber'>

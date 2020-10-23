@@ -9,8 +9,10 @@ import BannerImg from "../../components/bannerImg"
 
 const Home = props => (
     <Box>
+        {/* Image banner */}
         <BannerImg bannerSrc={`${homeBanner}`} bannerText="pillows designed around you" ctaButton="true" bannerSize="cover" bannerPositon="center" />
 
+        {/* Color Samples */}
         <Grid container className='PColors'>
             <Grid item xs={12} className='title'>colors</Grid>
             <Grid item container xs={12} direction="row"
@@ -51,6 +53,8 @@ const Home = props => (
                 </Grid>
             </Grid>
         </Grid>
+
+        {/* Fill Samples */}
         <Grid container className='PFills'>
             <Grid item xs={12} className='title'>pillow fills</Grid>
             <Grid item container xs={12} direction="row"
@@ -86,7 +90,7 @@ const Home = props => (
                 </Grid>
             </Grid>
         </Grid>
-
+        {/* Shop Button */}
         <Grid container
             justify="center">
             <Link to="/shop" className='homeButtonCTA bottom-button'>shop all pillows</Link>

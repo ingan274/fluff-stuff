@@ -668,9 +668,12 @@ class Detail extends Component {
         const quant = this.state.quant;
         const type = this.state.product;
         const color = this.state.color;
-        const fill = this.state.fill
+        const fill = this.state.fill;
+        const imgSrc = this.state.imgSrc1;
+        const imgSize = this.state.imgSize1;
+        const imgPosition = this.state.imgSrc1;
 
-        const item = { 'quant': quant, 'type': type, 'color': color, 'fill': fill }
+        const item = { 'quant': quant, 'type': type, 'color': color, 'fill': fill, "imgSrc": imgSrc, "imgSize": imgSize, "imgPosition": imgPosition }
 
 
         if (JSON.parse(localStorage.getItem(LSlocation)) === null) {

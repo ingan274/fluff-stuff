@@ -9,8 +9,13 @@ import { Grid } from '@material-ui/core';
 
 class MainNav extends Component {
 
-
   render = () => {
+    let itemsInCart;
+    if (this.props.cartNum > 0) {
+      itemsInCart =  <span id="cartNum">{this.props.cartNum}</span>
+    }
+
+
     return (
       <Grid container direction="row" justify="space-between" className='nav'>
         <Grid container item direction="row" className='leftNav' xs={8}>
@@ -22,7 +27,7 @@ class MainNav extends Component {
         </Grid>
         <Grid container item direction="row" xs={4} alignItems="center" justify="flex-end" className="box">
           <NavLink item="true" xs={6} className='navigation heart' to="/favorites" activeClassName='selected' id="heart"><FavoriteIcon fontSize="small" /> </NavLink>
-          <NavLink item="true" xs={6} to="/cart" activeClassName='cartselected' className='navigation cart' id="cart">cart <span id="cartNum">{this.props.cartNum}</span></NavLink>
+          <NavLink item="true" xs={6} to="/cart" activeClassName='cartselected' className='navigation cart' id="cart">cart {itemsInCart}</NavLink>
 
         </Grid>
       </Grid>

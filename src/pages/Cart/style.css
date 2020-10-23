@@ -1,91 +1,62 @@
-.pageHeader {
-    font-family: var(--title-font);
-    color: #5C64A2;
-    font-size: 40px;
-    margin-top: 40px;
-    margin-bottom: 35px;
+.cartDiv {
+    background-color: rgba(69, 82, 116, 0.05);
+    border-radius: 2px;
 }
 
-.bold {
+.headerLabel {
+    font-family: var(--body-text);
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 2px 5px;
+    color:  #A8A8A8;
+}
+
+.cartHeader  {
+    border-bottom: 2px solid #A8A8A8;
+    padding-bottom: 5px;
+    margin: 0px 0px 10px;
+}
+
+.cartTotal {
+    border-top: 2px solid #A8A8A8;
+    margin: 10px 0px;
+    text-transform: uppercase;
+    font-family: var(--body-text);
+    font-size: 15px;
+    color:  #A8A8A8;
+}
+
+.grandTotal {
+    font-size: 20px;
     font-weight: var(--bold);
+    color: #5C64A2;
 }
 
+.emptyCartText {
+    text-align: center;
+}
 
-/* form */
-.contact {
+#emptyCart {
+    height: 330px;
+}
+
+.cartButtonShop {
     font-family: var(--body-font);
-}
-
-input, #category {
-    width: 100%;
-    height: 30px;
-    margin: 3px 0px 20px 0px;
-    font-family: var(--body-font);
-    padding: 3px 1px;
-    font-size: 13px;
-    border: none;
-    border-bottom: 1.5px solid #E5E5E5;;
-}
-
-#category {
-    height: 36px;
-    padding: 3px 15px;
-    width: 100%;
-}
-
-.category:after {
-    padding: 15px 0px 0px 8px;
-}
-
-textarea {
-    width: 100%;
-    border: 1.5px solid #E5E5E5;
-    margin: 3px 0px 15px 0px;
-    font-family: var(--body-font);
-    padding: 3px 1px;
-    font-size: 13px;
-}
-
-.nameinput {
-    width: 47%;
-}
-
-#fname, #lname {
-    width: 100%;
-}
-
-.submit {
     background-color: #FFD19C;
     color: white;
+    border: none;
+    width: 200px;
+    height: 45px;
+    font-size: 13x;
     border-radius: 5px;
+    text-align: center;
+    padding: 6px;
 }
 
-.submit:hover {
-    background-color: #EDB678;
-}
-
-/* right side */
-
-.contact {
-    width: 55%; 
-}
-
-#spacebetween {
-    width: 23%; 
-}
-.contactInfo {
-    width: 22%;
-    font-family: var(--body-font);
-}
-
-.infoTitle {
-    font-family: var(--title-font);
-    color: #2A379D;
-    font-size: 20px;
-}
-
-.information {
-    margin: 10px 0px 30px 0px;
-    color: #A8A8A8;
-
+.emptyCartText {
+    margin: 30px 30px 20px;
+    font-family: var(--body-text);
+    text-transform: uppercase;
+    font-weight: var(--bold);
+    font-size: 14px;
 }

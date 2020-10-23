@@ -8,44 +8,53 @@ import PoufImg from "../../assets/imgs/school-special/minh-pham-OtXADkUh3-I-unsp
 
 const AllProd = props => (
     <Box>
+        {/* Product Page => using a grid to set up each row and Product component sets up the product tile */}
         <Grid containter="true">
             <Grid item container className="prodLine" direction="row" justify="space-evenly">
-                <Grid item xs={6}><Product
-                    title='bed'
-                    extraclass='bed'
-                    description='Our decorative bed pillows add style and comfort affordably to your bedroom. Sustainably
+                <Grid item xs={6}>
+                    <Product
+                        title='bed'
+                        extraclass='bed'
+                        description='Our decorative bed pillows add style and comfort affordably to your bedroom. Sustainably
                 made, discover our unique and colorful selection of bed pillows to accent any bedroom space.'
-                    imgSrc={BedImg}
-                    link="/shop/bed-pillow"
-                /></Grid>
+                        imgSrc={BedImg}
+                        link="/shop/bed-pillow"
+                    />
+                </Grid>
 
-                <Grid item xs={6}><Product
-                    title="couch"
-                    extraclass="couch"
-                    description="Couch pillows are a common decoration accessories in home life, but our couch pillows can
+                <Grid item xs={6}>
+                    <Product
+                        title="couch"
+                        extraclass="couch"
+                        description="Couch pillows are a common decoration accessories in home life, but our couch pillows can
                 be put in your arms to play a warm and protective role, but also bring a different style and
                 fashion."
-                    imgSrc={CouchImg}
-                    link="/shop/couch-pillow"
-                /></Grid>
+                        imgSrc={CouchImg}
+                        link="/shop/couch-pillow"
+                    />
+                </Grid>
             </Grid>
             <Grid item container className="prodLine" direction="row" justify="space-evenly">
-                <Grid item xs={6}><Product
-                    title="round"
-                    extraclass="round"
-                    description="These stylish under-stuffed round pillows are the perfect accessory anywhere in the
+                <Grid item xs={6}>
+                    <Product
+                        title="round"
+                        extraclass="round"
+                        description="These stylish under-stuffed round pillows are the perfect accessory anywhere in the
                 house. They will Bring the perfect finishing touch to any couch, chair or bed."
-                    imgSrc={RoundImg}
-                    link="/shop/round-pillow"
-                /></Grid>
-                <Grid item xs={6}><Product
-                    title="flour pouf"
-                    extraclass="pouf"
-                    description="Our floor poufs are sturdy and ideal for distinguishing small spaces or adding an extra
+                        imgSrc={RoundImg}
+                        link="/shop/round-pillow"
+                    />
+                </Grid>
+                <Grid item xs={6}>
+                    <Product
+                        title="flour pouf"
+                        extraclass="pouf"
+                        description="Our floor poufs are sturdy and ideal for distinguishing small spaces or adding an extra
                 seat for guests without taking up too much floor space."
-                    imgSrc={PoufImg}
-                    link="/shop/flour-pouf-pillow"
-                /></Grid>
+                        imgSrc={PoufImg}
+                        link="/shop/flour-pouf-pillow"
+                    />
+                </Grid>
             </Grid>
         </Grid>
     </Box>

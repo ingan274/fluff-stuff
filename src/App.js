@@ -38,7 +38,7 @@ class App extends Component {
   }
 
   cartNum = () => {
-    console.log('cart is updating)')
+    // console.log('cart is updating)')
     if (JSON.parse(localStorage.getItem("Cart")) === null) {
       this.setState({ cart: 0 })
     } else {

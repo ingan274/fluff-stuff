@@ -6,12 +6,15 @@ import BannerImg from "../../components/bannerImg"
 
 const About = props => (
     <Box>
+        {/* Banner Image */}
         <BannerImg bannerSrc="https://images.unsplash.com/photo-1552650272-b8a34e21bc4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3033&q=80" bannerText="fluff stuff makes pillows that match your every stage of life" bannerSize="cover" bannerPosition="center" />
 
+        {/* Animated arrow */}
         <div className="stage">
             <h1 className="aboutScroll bounce-1"><ArrowDropDownCircleRoundedIcon /></h1>
         </div>
 
+        {/* About Text */}
         <div className='origin'>
             <p className="aboutText">
                 We started creating pillows becuase we realized throughout different stages of our lives, we we have
@@ -24,6 +27,8 @@ const About = props => (
         </p>
         </div>
 
+        {/* Information about the Fill */}
+        {/* Duck Down */}
         <Grid container
             justify="center"
             spacing={5}
@@ -42,6 +47,7 @@ const About = props => (
                 </Grid>
             </Grid>
 
+            {/* Hypo. Poly Blend */}
             <Grid item container
                 direction="row"
                 justify="space-around"
@@ -55,6 +61,7 @@ const About = props => (
                 </Grid>
             </Grid>
 
+            {/* Memory Foam */}
             <Grid item container
                 direction="row"
                 justify="space-around"
