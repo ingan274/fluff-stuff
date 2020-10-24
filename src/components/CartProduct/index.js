@@ -14,32 +14,32 @@ class CartProd extends Component {
         };
 
         return (
-            <Grid item container className="cartProduct" directon="row">
+            <Grid item container className="cartProducts" directon="row" spacing={2}>
                 {/* Image and product Name */}
-                <Grid item xs={3}>
-                    <Grid container direction="row" alignItems="flex-start" spacing={2}>
-                        <Box style={img}></Box>
-                        <Box className="productText">{this.props.product}</Box>
+                <Grid item xs={4}>
+                    <Grid container direction="row" alignItems="flex-start" justify="flex-start" spacing={2}>
+                        <Box item='true' className="prodImg" style={img} m={1}></Box>
+                        <Box item='true' m={2} className="productTitle">{this.props.product}</Box>
                     </Grid>
                 </Grid>
 
                 {/* Color and Fill */}
                 <Grid item xs={3} >
-                    <Box className="productText">{this.props.color}</Box>
-                    <Box className="productText">{this.props.fill}</Box>
+                    <Box m={1} className="colorFillCart"><span className="colorFillLabel">Color:</span> {this.props.color}</Box>
+                    <Box m={1} className="colorFillCart"><span className="colorFillLabel">Fill:</span> {this.props.fill}</Box>
                 </Grid>
                 {/* Prod Cost */}
                 <Grid item xs={2} >
-                    <Box className="productText">{this.props.prodCost}</Box>
+                    <Box m={1} className="prodPrice">${this.props.prodCost}</Box>
                 </Grid>
                 {/* Quant */}
-                <Grid item xs={2} >
-                    <Box className="productText">{this.props.quant}</Box>
+                <Grid item xs={1} >
+                    <Box m={1} >{this.props.quant}</Box>
                 </Grid>
                 {/* Total Prod Cost */}
-                <Grid item xs={2} container directon="column" justify='center'>
-                    <Box className="productText">{this.props.prodTotal}</Box>
-                    <Box className="productRemove" onClick={this.props.delete}>remove</Box>
+                <Grid item xs={2} container direction="column">
+                    <Box item='true'  m={1} className="prodTotal">${this.props.prodTotal}</Box>
+                    <Box item='true' m={1} className="productRemove" name={this.props.location} onClick={this.props.removeItem}>remove</Box>
                 </Grid>
             </Grid>
         )

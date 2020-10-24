@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Box, Grid } from '@material-ui/core';
 import "./style.css";
 
-class ProdTile extends Component {
+class ProdInfo extends Component {
     render = () => {
         let faveButton;
         if (this.props.favoritedText) {
@@ -12,15 +12,13 @@ class ProdTile extends Component {
         }
 
         return (
-            <Box className='productArea' mb={1} mx={2} style={{
-                backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.3)), url(${this.props.imgSrc})`
-            }}>
+            <Box className='productArea' mb={1} mx={2}>
                 <Grid container className='productText'>
                     <h1 className='prodName'>{this.props.product}</h1>
                     <Grid container direction="row" justify="space-between" alignItems="center" className='costAdd row'>
                         <Box item="true" ml={2}>
                             <Grid item container xs={10} direction='column' alignItems='flex-start'>
-                                <Grid item className='cost'>{this.props.price}</Grid>
+                                <Grid item className='cost'>${this.props.price}</Grid>
                                 <Grid container direction="row" alignItems="center" className="quantity">
                                     <Box item="true" className="quantLabel">QUANTITY:</Box>
                                     <Box item="true" className=' quantarrow' name="down" onClick={this.props.changeQuant}>-</Box>
@@ -33,7 +31,6 @@ class ProdTile extends Component {
                         <Grid item container direction="column" justify="center" xs={3}>
                             <Box className='addToCart' location='Cart' onClick={this.props.addtoCart}>Add to Cart</Box>
                             {faveButton}
-
                         </Grid>
                     </Grid>
                 </Grid>
@@ -42,4 +39,4 @@ class ProdTile extends Component {
     }
 }
 
-export default ProdTile;
+export default ProdInfo;

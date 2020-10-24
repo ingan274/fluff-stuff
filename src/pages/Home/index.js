@@ -92,8 +92,8 @@ const Home = props => (
         </Grid>
         {/* Shop Button */}
         <Grid container
-            justify="center">
-            <Link to="/shop" className='homeButtonCTA bottom-button'>shop all pillows</Link>
+            justify="center" alignItems="center">
+            <Link to="/shop" className='homeButtonCTA' id="bottom-button">shop all pillows</Link>
         </Grid>
         <footer></footer>
     </Box>

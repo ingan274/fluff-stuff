@@ -20,7 +20,7 @@ class Detail extends Component {
                 this.state = {
                     page: 'bed-pillow',
                     product: 'bed pillow',
-                    price: '$32.99',
+                    price: 32.99,
                     description: 'Our decorative bed pillows add style and comfort affordably to your bedroom. Sustainably made, discover our unique and colorful selection of bed pillows to accent any bedroom space.',
                     washShort: 'Low temputure water (30°) | neutral detergent | Do not bleach | ≤110°Ironing | Machine dry',
                     washLong: 'Machine washable. Remove the cover from the insert. Wash both in cold tempurature water and use natural detergent. Put two tennis balls in the dryer and put the insertand cover in at a low temp.',
@@ -70,7 +70,7 @@ class Detail extends Component {
                 this.state = {
                     page: 'couch-pillow',
                     product: 'couch pillow',
-                    price: '$42.99',
+                    price: 42.99,
                     description: 'Couch pillow are a common decoration accessories in home life, but our couch pillows can be put in your arms to play a warm and protective role, but also bring a different style and fashion.',
                     washShort: 'Low temputure water (30°) | neutral detergent | Do not bleach | ≤110°Ironing | Hang to dry cover | Machine dry insert',
                     washLong: 'Machine washable. Remove the cover from the insert. Wash both in cold tempurature water and use natural detergent. Put two tennis balls in the dryer and put the insert and cover in at a low temp. Hang dry the outside cover.',
@@ -121,7 +121,7 @@ class Detail extends Component {
                 this.state = {
                     page: 'round-pillow',
                     product: 'round pillow',
-                    price: '$30.99',
+                    price: 30.99,
                     description: 'These stylish under-stuffed round pillows are the perfect accessory anywhere in the house. They will Bring the perfect finishing touch to any couch, chair or bed.',
                     washShort: 'Hnad wash cover | Machine wash insert | Low temputure water (30°) | neutral detergent | Do not bleach | ≤110°Ironing',
                     washLong: 'Hand wash cover. Machine wash insert. Remove the cover from the insert. Wash both in cold tempurature water and use natural detergent. Put two tennis balls in the dryer and put the insert in at a low temp. Hang dry the outside cover.',
@@ -172,7 +172,7 @@ class Detail extends Component {
                 this.state = {
                     page: 'floor-pouf-pillow',
                     product: 'floor pouf pillow',
-                    price: '$45.99',
+                    price: 45.99,
                     description: 'Our floor poufs are sturdy and ideal for distinguishing small spaces or adding an extra seat for guests without taking up too much floor space.',
                     washShort: 'Hand wash only | Low temputure water (30°) | Do not bleach | Hang to dry',
                     washLong: 'Hand wash only. Remove the cover from the insert. Wash both in cold tempurature water. Hang dry the outside cover.',
@@ -231,7 +231,7 @@ class Detail extends Component {
                 this.setState({
                     page: 'bed-pillow',
                     product: 'bed pillow',
-                    price: '$32.99',
+                    price: 32.99,
                     description: 'Our decorative bed pillows add style and comfort affordably to your bedroom. Sustainably made, discover our unique and colorful selection of bed pillows to accent any bedroom space.',
                     washShort: 'Low temputure water (30°) | neutral detergent | Do not bleach | ≤110°Ironing | Machine dry',
                     washLong: 'Machine washable. Remove the cover from the insert. Wash both in cold tempurature water and use natural detergent. Put two tennis balls in the dryer and put the insertand cover in at a low temp.',
@@ -277,7 +277,7 @@ class Detail extends Component {
                 this.setState({
                     page: 'couch-pillow',
                     product: 'couch pillow',
-                    price: '$42.99',
+                    price: 42.99,
                     description: 'Couch pillow are a common decoration accessories in home life, but our couch pillows can be put in your arms to play a warm and protective role, but also bring a different style and fashion.',
                     washShort: 'Low temputure water (30°) | neutral detergent | Do not bleach | ≤110°Ironing | Hang to dry cover | Machine dry insert',
                     washLong: 'Machine washable. Remove the cover from the insert. Wash both in cold tempurature water and use natural detergent. Put two tennis balls in the dryer and put the insert and cover in at a low temp. Hang dry the outside cover.',
@@ -322,7 +322,7 @@ class Detail extends Component {
                 this.setState({
                     page: 'round-pillow',
                     product: 'round pillow',
-                    price: '$30.99',
+                    price: 30.99,
                     description: 'These stylish under-stuffed round pillows are the perfect accessory anywhere in the house. They will Bring the perfect finishing touch to any couch, chair or bed.',
                     washShort: 'Hnad wash cover | Machine wash insert | Low temputure water (30°) | neutral detergent | Do not bleach | ≤110°Ironing',
                     washLong: 'Hand wash cover. Machine wash insert. Remove the cover from the insert. Wash both in cold tempurature water and use natural detergent. Put two tennis balls in the dryer and put the insert in at a low temp. Hang dry the outside cover.',
@@ -367,7 +367,7 @@ class Detail extends Component {
                 this.setState({
                     page: 'floor-pouf-pillow',
                     product: 'floor pouf pillow',
-                    price: '$45.99',
+                    price: 45.99,
                     description: 'Our floor poufs are sturdy and ideal for distinguishing small spaces or adding an extra seat for guests without taking up too much floor space.',
                     washShort: 'Hand wash only | Low temputure water (30°) | Do not bleach | Hang to dry',
                     washLong: 'Hand wash only. Remove the cover from the insert. Wash both in cold tempurature water. Hang dry the outside cover.',
@@ -390,7 +390,7 @@ class Detail extends Component {
                     imgSize4: '120%',
                     imgPosition4: '100% 93%',
                     tipsImg: "../../assets/imgs/rainy-day/julien-lanoy-jV5Jqlgp4h0-unsplash.jpg",
-                    tipsImgSize: "100%",
+                    tipsImgSize: "103%",
 
                     detail: false,
                     care: false,
@@ -504,27 +504,26 @@ class Detail extends Component {
         }
     };
 
-
     // Click interaction to change state of what is open and closed
     openMoreInformation = (item) => {
         if (item === "detail") {
-            this.setState({
-                detail: true,
+            this.setState((prevState => ({
+                detail: !prevState.detail,
                 care: false,
                 ship: false,
-            })
+            })))
         } else if (item === "care") {
-            this.setState({
+            this.setState((prevState => ({
                 detail: false,
-                care: true,
+                care: !prevState.care,
                 ship: false,
-            })
+            })))
         } else if (item === "ship") {
-            this.setState({
+            this.setState((prevState => ({
                 detail: false,
                 care: false,
-                ship: true,
-            })
+                ship: !prevState.ship,
+            })))
         } else {
             this.setState({
                 detail: false,
@@ -671,9 +670,10 @@ class Detail extends Component {
         const fill = this.state.fill;
         const imgSrc = this.state.imgSrc1;
         const imgSize = this.state.imgSize1;
-        const imgPosition = this.state.imgSrc1;
+        const imgPosition = this.state.imgPosition1;
+        const prodCost = this.state.price;
 
-        const item = { 'quant': quant, 'type': type, 'color': color, 'fill': fill, "imgSrc": imgSrc, "imgSize": imgSize, "imgPosition": imgPosition }
+        const item = { 'quant': quant, 'type': type, 'color': color, 'fill': fill, "imgSrc": imgSrc, "imgSize": imgSize, "imgPosition": imgPosition, "cost": prodCost }
 
 
         if (JSON.parse(localStorage.getItem(LSlocation)) === null) {
