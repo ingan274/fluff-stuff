@@ -8,7 +8,7 @@ fluff stuff makes pillows that match your every stage of life
 <br>
 Digital Prototype of Fluff Stuff Website (Fall 2020 HW5)
 <br>
-Live Link: 
+Live Link: https://ingan274.github.io/fluff-stuff/
 <br>
 <br>
 
