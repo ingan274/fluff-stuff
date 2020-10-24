@@ -39,7 +39,7 @@ class CartProd extends Component {
                 {/* Total Prod Cost */}
                 <Grid item xs={2} container direction="column">
                     <Box item='true'  m={1} className="prodTotal">${this.props.prodTotal}</Box>
-                    <Box item='true' m={1} className="productRemove" name={this.props.location} onClick={this.props.removeItem}>remove</Box>
+                    <Box item='true' m={1} className="productRemove" quant={this.props.quant} name={this.props.location} onClick={this.props.removeItem}>remove</Box>
                 </Grid>
             </Grid>
         )

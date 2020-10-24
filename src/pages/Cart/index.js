@@ -114,37 +114,76 @@ class Cart extends Component {
                 tax: tax,
                 grandTotal: totalOfBag
             }
+
         }
     };
     // Remove item from cart
     removeItem = (event) => {
+        let number = event.target.attributes.quant.value;
         const index = event.target.attributes.name.value;
         const item = this.state.products[index]
         const removeItem = item.type;
-        const removeColor = item.color;
-        const removeFill = item.fill;
-        
+        let removeColor;
+        let removeFill;
+
         let localStore = JSON.parse(localStorage.getItem("Cart"));
 
-        let removeIndex = [];
-        for (let i = 0; i < localStore.length; i++) {
-            if (localStore[i].item === removeItem && localStore[i].color === removeColor && localStore[i].fill === removeFill) {
-                console.log(i)
+        switch (item.color) {
+            case ("After School Special"):
+                removeColor = "ASS";
+                break;
+            case ("Morning Haze"):
+                removeColor = "MH";
+                break;
+            case ("Cozy Denim"):
+                removeColor = "CD";
+                break;
+            case ("Rainy Day"):
+                removeColor = "RD";
+                break;
+            default:
+                removeColor = "ASS"
+        }
+
+        switch (item.fill) {
+            case ("Duck Down"):
+                removeFill = "DD";
+                break;
+            case ("Hypoallergenic Poly-Blend"):
+                removeFill = "HPB";
+                break;
+            case ("Memory Foam"):
+                removeFill = "MF";
+                break;
+            default:
+                removeFill = "DD"
+        }
+
+        while (number > 0) {
+            for (let i = 0; i < localStore.length; i++) {
+                if (localStore[i].type === removeItem && localStore[i].color === removeColor && localStore[i].fill === removeFill) {
+                    localStore.splice(i, 1)
+                    number -= 1
+                }
             }
         }
 
-        console.log(removeIndex)
-        for (let index of removeIndex) {
-            localStore.splice(index,1)
-        }
+        // updating state
+        let newList = this.state.products;
+        newList.splice(index, 1)
+        this.setState((prevState => ({
+            products: newList,
+            cartQuant: prevState - 1
+        })))
 
+        console.log(localStore)
         localStorage.setItem("Cart", JSON.stringify(localStore));
-        
+
     }
 
     // If there are items, Else no cart message
     cartItems = () => {
-        if (this.state.cartTotal === 0) {
+        if (this.state.cartQuant === 0) {
             return <Grid item container direction="column" justify="center" alignItems="center" id="emptyCart">
                 <Box item="true" className="emptyCartText">Your Cart is Empty</Box>
                 <Grid><Link to="/shop" className='cartButtonShop'>back to shop</Link></Grid>

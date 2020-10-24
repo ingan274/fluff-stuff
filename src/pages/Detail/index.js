@@ -330,10 +330,10 @@ class Detail extends Component {
                     size: "15' x 15'",
 
                     imgSrc: '../../assets/imgs/Denim/krisztina-papp-5mmbQLtNYHY-unsplash.jpg',
-                    imgSize: '100%',
+                    imgSize: '103%',
                     imgPosition: '50% 100%',
                     imgSrc1: '../../assets/imgs/Denim/krisztina-papp-5mmbQLtNYHY-unsplash.jpg',
-                    imgSize1: '100%',
+                    imgSize1: '103%',
                     imgPosition1: '50% 100%',
                     imgSrc2: '../../assets/imgs/rainy-day/julien-lanoy-jV5Jqlgp4h0-unsplash.jpg',
                     imgSize2: '130%',
@@ -690,7 +690,6 @@ class Detail extends Component {
         }
 
         if (LSlocation === "Cart") {
-            console.log('click')
             this.props.cartUpdate();
         }
 

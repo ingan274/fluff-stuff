@@ -47,12 +47,12 @@ const AllProd = props => (
                 </Grid>
                 <Grid item xs={6}>
                     <Product
-                        title="flour pouf"
+                        title="flo0r pouf"
                         extraclass="pouf"
                         description="Our floor poufs are sturdy and ideal for distinguishing small spaces or adding an extra
                 seat for guests without taking up too much floor space."
                         imgSrc={PoufImg}
-                        link="/shop/flour-pouf-pillow"
+                        link="/shop/floor-pouf-pillow"
                     />
                 </Grid>
             </Grid>
