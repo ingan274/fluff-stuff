@@ -13,6 +13,7 @@ import Detail from "./pages/Detail";
 import Nav from "./components/Nav";
 import Container from "./components/Container";
 import Cart from "./pages/Cart";
+import Fave from "./pages/Fave";
 
 class App extends Component {
 
@@ -88,6 +89,11 @@ class App extends Component {
             <Route exact path="/cart">
               <Nav cartNum={this.state.cart} />
               <Cart cartUpdate={this.cartNum} />
+            </Route>
+
+            <Route exact path="/favorites">
+              <Nav cartNum={this.state.cart} />
+              <Fave />
             </Route>
             {/* <Route path="/checkout">
               <CheckoutNav />

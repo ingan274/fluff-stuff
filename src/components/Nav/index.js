@@ -26,7 +26,7 @@ class MainNav extends Component {
           <NavLink item="true" to="/contact" activeClassName='selected' className='navigation right' id="contact">contact</NavLink>
         </Grid>
         <Grid container item direction="row" xs={4} alignItems="center" justify="flex-end" className="box">
-          <NavLink item="true" xs={6} className='navigation heart' to="/favorites" activeClassName='selected' id="heart"><FavoriteIcon fontSize="small" /> </NavLink>
+          <NavLink item="true" xs={6} className='navigation heart' to="/favorites" activeClassName='cartselected' id="heart"><FavoriteIcon fontSize="small" /> </NavLink>
           <NavLink item="true" xs={6} to="/cart" activeClassName='cartselected' className='navigation cart' id="cart">cart {itemsInCart}</NavLink>
 
         </Grid>

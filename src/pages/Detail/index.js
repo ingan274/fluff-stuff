@@ -691,6 +691,7 @@ class Detail extends Component {
 
         if (LSlocation === "Cart") {
             this.props.cartUpdate();
+            this.setState({ quant: 1 })
         }
 
         if (LSlocation === "Favorite") {

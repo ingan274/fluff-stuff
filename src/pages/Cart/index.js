@@ -141,7 +141,8 @@ class Cart extends Component {
         }
 
         this.setState({
-            products: localProds,
+            products: products,
+            localProds: localProds,
             cartQuant: quant,
         }, function () {
             this.cartItems();
