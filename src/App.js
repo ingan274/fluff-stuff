@@ -87,7 +87,7 @@ class App extends Component {
 
             <Route exact path="/cart">
               <Nav cartNum={this.state.cart} />
-              <Cart {...props} cartUpdate={this.cartNum} />
+              <Cart cartUpdate={this.cartNum} />
             </Route>
             {/* <Route path="/checkout">
               <CheckoutNav />
