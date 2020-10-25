@@ -16,6 +16,7 @@ class Cart extends Component {
         if (JSON.parse(localStorage.getItem("Cart")) === null) {
             this.state = {
                 products: [],
+                localProds:[],
                 cartQuant: 0,
                 productTotal: "00.00",
                 tax: "00.00",
@@ -25,6 +26,7 @@ class Cart extends Component {
         // get from local storage, sort, and reorgnize 
         else {
             let reOrg = [];
+            let reOrgLocal = [];
             let cartTotal = 0;
             let productTotal = 0;
             let localStore = JSON.parse(localStorage.getItem("Cart"));
@@ -34,15 +36,17 @@ class Cart extends Component {
                 if (products.length === 0) { continue }
 
                 for (let singleColor of colors) {
-                    let color = products.filter(items => items.color === singleColor);
-                    if (color.length === 0) { continue }
-
+                    let colorPicked = products.filter(items => items.color === singleColor);
+                    if (colorPicked.length === 0) { continue }
+                    
                     for (let singleFill of fills) {
-                        let fill = color.filter(items => items.fill === singleFill);
+                        let fill = colorPicked.filter(items => items.fill === singleFill);
                         if (fill.length === 0) { continue }
                         else if (fill.length > 0) {
 
                             const prod_type = fill[0].type;
+                            const colorLocal = fill[0].color;
+                            const fillLocal = fill[0].fill;
                             let prod_color;
                             let prod_fill;
                             const prod_imgSrc = fill[0].imgSrc;
@@ -90,14 +94,16 @@ class Cart extends Component {
                             }
                             const prod_total = prod_cost * prod_quant;
 
-
-
                             const item = { 'quant': prod_quant, 'type': prod_type, 'color': prod_color, 'fill': prod_fill, "imgSrc": prod_imgSrc, "imgSize": prod_imgSize, "imgPosition": prod_imgPosition, "cost": prod_cost, "totalCost": prod_total }
+                            const itemLocal = { 'quant': prod_quant, 'type': prod_type, 'color': colorLocal, 'fill': fillLocal, "imgSrc": prod_imgSrc, "imgSize": prod_imgSize, "imgPosition": prod_imgPosition, "cost": prod_cost, "totalCost": prod_total }
+                          
                             reOrg.push(item)
+                            reOrgLocal.push(itemLocal)
                         }
                     }
                 }
             }
+
 
             for (let productType of reOrg) {
                 productTotal += productType.totalCost;
@@ -109,6 +115,7 @@ class Cart extends Component {
 
             this.state = {
                 products: reOrg,
+                localProds:reOrgLocal,
                 cartQuant: cartTotal,
                 productTotal: productTotal,
                 tax: tax,
@@ -118,130 +125,29 @@ class Cart extends Component {
         }
     };
 
-    componentDidUpdate = () => {
-        const type = ['bed pillow', 'couch pillow', 'round pillow', 'floor pouf pillow'];
-        const colors = ['ASS', 'MH', 'CD', 'RD'];
-        const fills = ['DD', 'HPB', 'MF']
-
-        if (JSON.parse(localStorage.getItem("Cart")) === null) {
-            this.setState({
-                products: [],
-                cartQuant: 0,
-                productTotal: "00.00",
-                tax: "00.00",
-                grandTotal: "00.00"
-            })
-        }
-        // get from local storage, sort, and reorgnize 
-        else {
-            let reOrg = [];
-            let cartTotal = 0;
-            let productTotal = 0;
-            let localStore = JSON.parse(localStorage.getItem("Cart"));
-
-            for (let pillow of type) {
-                let products = localStore.filter(items => items.type === pillow);
-                if (products.length === 0) { continue }
-
-                for (let singleColor of colors) {
-                    let color = products.filter(items => items.color === singleColor);
-                    if (color.length === 0) { continue }
-
-                    for (let singleFill of fills) {
-                        let fill = color.filter(items => items.fill === singleFill);
-                        if (fill.length === 0) { continue }
-                        else if (fill.length > 0) {
-
-                            const prod_type = fill[0].type;
-                            let prod_color;
-                            let prod_fill;
-                            const prod_imgSrc = fill[0].imgSrc;
-                            const prod_imgSize = fill[0].imgSize;
-                            const prod_imgPosition = fill[0].imgPosition;
-                            const prod_cost = fill[0].cost;
-
-                            switch (fill[0].color) {
-                                case ("ASS"):
-                                    prod_color = "After School Special";
-                                    break;
-                                case ("MH"):
-                                    prod_color = "Morning Haze";
-                                    break;
-                                case ("CD"):
-                                    prod_color = "Cozy Denim";
-                                    break;
-                                case ("RD"):
-                                    prod_color = "Rainy Day";
-                                    break;
-                                default:
-                                    prod_color = "After School Special"
-                            }
-
-                            switch (fill[0].fill) {
-                                case ("DD"):
-                                    prod_fill = "Duck Down";
-                                    break;
-                                case ("HPB"):
-                                    prod_fill = "Hypoallergenic Poly-Blend";
-                                    break;
-                                case ("MF"):
-                                    prod_fill = "Memory Foam";
-                                    break;
-                                default:
-                                    prod_fill = "Duck Down"
-                            }
-
-                            let prod_quant = 0;
-                            for (let item of fill) {
-                                let theQuant = item.quant;
-                                prod_quant += theQuant;
-                                cartTotal += theQuant
-
-                            }
-                            const prod_total = prod_cost * prod_quant;
-
-
-
-                            const item = { 'quant': prod_quant, 'type': prod_type, 'color': prod_color, 'fill': prod_fill, "imgSrc": prod_imgSrc, "imgSize": prod_imgSize, "imgPosition": prod_imgPosition, "cost": prod_cost, "totalCost": prod_total }
-                            reOrg.push(item)
-                        }
-                    }
-                }
-            }
-
-            for (let productType of reOrg) {
-                productTotal += productType.totalCost;
-            }
-
-            const tax = (productTotal * 0.06).toFixed(2);
-            const totalOfBag = (productTotal + parseFloat(tax)).toFixed(2);
-            productTotal = productTotal.toFixed(2);
-
-            this.setState({
-                products: reOrg,
-                cartQuant: cartTotal,
-                productTotal: productTotal,
-                tax: tax,
-                grandTotal: totalOfBag
-            })
-
-        }
-    }
     // Remove item from cart
     removeItem = (event) => {
-        const index = event.target.attributes.name.value;
+        const index = parseInt(event.target.attributes.name.value);
+        const localProds = this.state.localProds
         const products = this.state.products
         products.splice(index, 1);
-        let quant = this.state.totalQuant - products[index].quant
+        localProds.splice(index, 1);
+        let quant;
+
+        if (index === 0 && this.state.cartQuant === 1) {
+            quant = 0;
+        } else {
+            quant = this.state.cartQuant - products[index].quant
+        }
 
         this.setState({
-            products: products,
+            products: localProds,
             cartQuant: quant,
         }, function () {
             this.cartItems();
         })
 
-        localStorage.setItem("Cart", JSON.stringify(products));
+        localStorage.setItem("Cart", JSON.stringify(localProds));
         this.props.cartUpdate();
     }
 
