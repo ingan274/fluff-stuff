@@ -23,12 +23,12 @@ class CartProd extends Component {
                 <Box m={2} className="prodPriceFave">${this.props.prodCost}</Box>
                 <Box className="addFavetoCart"
                     product={this.props.product}
-                    color={this.props.color}
+                    pillowcolor={this.props.color}
                     fill={this.props.fill}
                     cost={this.props.prodCost}
                     background={this.props.imgSrc}
-                    backgroundSize={this.props.imgSize}
-                    backgroundPosition={this.props.imgPosition}
+                    backgroundsize={this.props.imgSize}
+                    backgroundposition={this.props.imgPosition}
                     onClick={this.props.addFavesToCart}>Add to Cart</Box>
             </Box>
         )

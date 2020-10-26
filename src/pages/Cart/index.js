@@ -13,7 +13,7 @@ class Cart extends Component {
         const colors = ['ASS', 'MH', 'CD', 'RD'];
         const fills = ['DD', 'HPB', 'MF']
 
-        if (JSON.parse(localStorage.getItem("Cart")) === null) {
+        if (JSON.parse(localStorage.getItem("Cart")) === null || JSON.parse(localStorage.getItem("Cart")).length === 0) {
             this.state = {
                 products: [],
                 localProds:[],
@@ -34,16 +34,16 @@ class Cart extends Component {
             for (let pillow of type) {
                 let products = localStore.filter(items => items.type === pillow);
                 if (products.length === 0) { continue }
-
+                // console.log(products)
                 for (let singleColor of colors) {
                     let colorPicked = products.filter(items => items.color === singleColor);
                     if (colorPicked.length === 0) { continue }
-                    
+                    // console.log(colorPicked)
                     for (let singleFill of fills) {
                         let fill = colorPicked.filter(items => items.fill === singleFill);
                         if (fill.length === 0) { continue }
                         else if (fill.length > 0) {
-
+                            // console.log(fill)
                             const prod_type = fill[0].type;
                             const colorLocal = fill[0].color;
                             const fillLocal = fill[0].fill;
@@ -91,6 +91,8 @@ class Cart extends Component {
                                 prod_quant += theQuant;
                                 cartTotal += theQuant
 
+                                console.log(theQuant)
+
                             }
                             const prod_total = prod_cost * prod_quant;
 
@@ -108,6 +110,8 @@ class Cart extends Component {
             for (let productType of reOrg) {
                 productTotal += productType.totalCost;
             }
+
+            console.log(cartTotal)
 
             const tax = (productTotal * 0.06).toFixed(2);
             const totalOfBag = (productTotal + parseFloat(tax)).toFixed(2);

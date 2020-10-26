@@ -114,18 +114,56 @@ class Fave extends Component {
             this.faveItems();
         })
 
-        localStorage.setItem("Favorte", JSON.stringify(localFaves));
+        localStorage.setItem("Favorite", JSON.stringify(localFaves));
     }
 
     addFaves2Cart = (event) => {
+        console.log(event.target.attributes)
         let list = []
         const cost = parseInt(event.target.attributes.cost.value);
         const product = event.target.attributes.product.value;
-        const fill = event.target.attributes.fill.value;
+        let fill; 
         const background = event.target.attributes.background.value;
-        const backgroundSize = event.target.attributes.backgroundSize.value;
-        const backgroundPosition = event.target.attributes.backgroundPosition.value;
-        const color = event.target.attributes.color.value;
+        const backgroundSize = event.target.attributes.backgroundsize.value;
+        const backgroundPosition = event.target.attributes.backgroundposition.value ;
+        let color;
+        // console.log("cost", cost)
+        // console.log("product", product)
+        // console.log("fill", fill)
+        // console.log("background", background)
+        // console.log("backgroundSize", backgroundSize)
+        // console.log("backgroundPosition", backgroundPosition)
+        // console.log("color", color)
+        switch (event.target.attributes.pillowcolor.value) {
+            case ("After School Special"):
+                color = "ASS";
+                break;
+            case ("Morning Haze"):
+                color = "MH";
+                break;
+            case ("Cozy Denim"):
+                color = "CD";
+                break;
+            case ("Rainy Day"):
+                color = "RD";
+                break;
+            default:
+                color = "ASS"
+        }
+
+        switch (event.target.attributes.fill.value) {
+            case ("Duck Down"):
+                fill = "DD";
+                break;
+            case ("Hypoallergenic Poly-Blend"):
+                fill = "HPB";
+                break;
+            case ("Memory Foam"):
+                fill = "MF";
+                break;
+            default:
+                fill = "DD"
+        }
 
         const item = { 'quant': 1, 'type': product, 'color': color, 'fill': fill, "imgSrc": background, "imgSize": backgroundSize, "imgPosition": backgroundPosition, "cost": cost }
 
@@ -134,12 +172,14 @@ class Fave extends Component {
             list.push(item);
             // Re-serialize the array back into a string and store it in localStorage
             localStorage.setItem("Cart", JSON.stringify(list));
+            this.props.cartUpdate();
         } else {
             list = JSON.parse(localStorage.getItem("Cart"));
             // Push the new item into list
             list.push(item);
             // Re-serialize the array back into a string and store it in localStorage
             localStorage.setItem("Cart", JSON.stringify(list));
+            this.props.cartUpdate();
         }
     }
 
