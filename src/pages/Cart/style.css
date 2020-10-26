@@ -32,12 +32,8 @@
     color: #5C64A2;
 }
 
-.emptyCartText {
-    text-align: center;
-}
-
 #emptyCart {
-    height: 330px;
+    height: 300px;
 }
 
 .cartButtonShop {
@@ -47,18 +43,18 @@
     border: none;
     width: 200px;
     height: 45px;
-    font-size: 13x;
     border-radius: 5px;
     text-align: center;
     padding: 10px;
-    font-weight: var(--bold)
+    font-weight: var(--bold);
 }
 
 .cartButtonShop:hover {
     background-color: #FFD19C;
 }
 
-.emptyCartText {
+.emptyCartFaveText {
+    text-align: center;
     margin: 30px 30px 20px;
     font-family: var(--body-text);
     text-transform: uppercase;

@@ -1,10 +1,10 @@
 .faveImg {
-    width: 230px;
-    height: 230px;
+    width: 215px;
+    height: 215px;
 }
 
 .faveProducts {
-    background-color:rgba(69, 82, 116, 0.03);
+    background-color:rgba(69, 82, 116, 0.02);
     font-family: var(--body-font);
     font-size: 13px;
     border-radius: 5px;

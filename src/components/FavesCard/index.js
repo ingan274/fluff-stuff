@@ -14,7 +14,7 @@ class CartProd extends Component {
         };
 
         return (
-            <Box item='true' container='true' xs={3} className="faveProducts" directon="column" spacing={2} m={2} px={2} py={1} alignItems="center" justify="center">
+            <Box item='true' container='true' xs={3} className="faveProducts" directon="column" mx={1} mb={2} px={1} py={1} alignItems="center" justify="center">
                 <Box item='true' m={1} className="productRemove" name={this.props.location} onClick={this.props.removeItem}>remove</Box>
                 <Box item='true' className="faveImg" style={img} m={1}></Box>
                 <Box item='true' m={2} className="productTitleFave">{this.props.product}</Box>

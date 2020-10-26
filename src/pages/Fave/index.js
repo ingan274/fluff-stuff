@@ -117,6 +117,7 @@ class Fave extends Component {
         localStorage.setItem("Favorite", JSON.stringify(localFaves));
     }
 
+    // Add Favorite to cart
     addFaves2Cart = (event) => {
         console.log(event.target.attributes)
         let list = []
@@ -189,14 +190,14 @@ class Fave extends Component {
 
     // If there are items, Else no fave message
     faveItems = () => {
-        if (this.state.cartQuant === 0) {
-            return <Grid item container direction="column" justify="center" alignItems="center" id="emptyCart">
-                <Box item="true" className="emptyCartText">No Favorites so far</Box>
+        if (this.state.faveQuant === 0) {
+            return <Grid item container direction="column" justify="center" alignItems="center" id="emptyFaves">
+                <Box item="true" className="emptyCartFaveText">No Favorites so far</Box>
                 <Grid><Link to="/shop" className='cartButtonShop'>back to shop</Link></Grid>
             </Grid>
         } else {
             return (
-                <Grid item container direction="row" spacing={2}>
+                <Grid item container direction="row" spacing={1}>
                     {this.state.faved.map((item, index) => (
                         <Favecard
                             key={index.toString()}

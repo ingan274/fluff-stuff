@@ -163,9 +163,9 @@ class Cart extends Component {
     // If there are items, Else no cart message
     cartItems = () => {
         if (this.state.cartQuant === 0) {
-            return <Grid item container direction="column" justify="center" alignItems="center" id="emptyCart">
-                <Box item="true" className="emptyCartText">Your Cart is Empty</Box>
-                <Grid><Link to="/shop" className='cartButtonShop'>back to shop</Link></Grid>
+            return <Grid item container direction="column" justify="center" alignItems="center" spacing={3} id="emptyCart">
+                <Box item="true" className="emptyCartFaveText">Your Cart is Empty</Box>
+                <Grid item><Link to="/shop" className='cartButtonShop'>back to shop</Link></Grid>
             </Grid>
         } else {
             // console.log(this.state.products)
