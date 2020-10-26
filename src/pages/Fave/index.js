@@ -129,11 +129,10 @@ class Fave extends Component {
         let color;
         // console.log("cost", cost)
         // console.log("product", product)
-        // console.log("fill", fill)
         // console.log("background", background)
         // console.log("backgroundSize", backgroundSize)
         // console.log("backgroundPosition", backgroundPosition)
-        // console.log("color", color)
+      
         switch (event.target.attributes.pillowcolor.value) {
             case ("After School Special"):
                 color = "ASS";
@@ -165,9 +164,14 @@ class Fave extends Component {
                 fill = "DD"
         }
 
+        // console.log("color", color)
+        // console.log("fill", fill)
+
         const item = { 'quant': 1, 'type': product, 'color': color, 'fill': fill, "imgSrc": background, "imgSize": backgroundSize, "imgPosition": backgroundPosition, "cost": cost }
 
-        if (JSON.parse(localStorage.getItem("cart")) === null) {
+        // console.log(JSON.parse(localStorage.getItem("Cart")))
+
+        if (JSON.parse(localStorage.getItem("Cart")) === null) {
             // Push the item into onto the array 'list'
             list.push(item);
             // Re-serialize the array back into a string and store it in localStorage

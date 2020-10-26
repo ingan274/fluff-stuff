@@ -16,7 +16,7 @@ class Cart extends Component {
         if (JSON.parse(localStorage.getItem("Cart")) === null || JSON.parse(localStorage.getItem("Cart")).length === 0) {
             this.state = {
                 products: [],
-                localProds:[],
+                localProds: [],
                 cartQuant: 0,
                 productTotal: "00.00",
                 tax: "00.00",
@@ -91,14 +91,14 @@ class Cart extends Component {
                                 prod_quant += theQuant;
                                 cartTotal += theQuant
 
-                                console.log(theQuant)
+                                // console.log(theQuant)
 
                             }
                             const prod_total = prod_cost * prod_quant;
 
                             const item = { 'quant': prod_quant, 'type': prod_type, 'color': prod_color, 'fill': prod_fill, "imgSrc": prod_imgSrc, "imgSize": prod_imgSize, "imgPosition": prod_imgPosition, "cost": prod_cost, "totalCost": prod_total }
                             const itemLocal = { 'quant': prod_quant, 'type': prod_type, 'color': colorLocal, 'fill': fillLocal, "imgSrc": prod_imgSrc, "imgSize": prod_imgSize, "imgPosition": prod_imgPosition, "cost": prod_cost, "totalCost": prod_total }
-                          
+
                             reOrg.push(item)
                             reOrgLocal.push(itemLocal)
                         }
@@ -111,7 +111,7 @@ class Cart extends Component {
                 productTotal += productType.totalCost;
             }
 
-            console.log(cartTotal)
+            // console.log(cartTotal)
 
             const tax = (productTotal * 0.06).toFixed(2);
             const totalOfBag = (productTotal + parseFloat(tax)).toFixed(2);
@@ -119,7 +119,7 @@ class Cart extends Component {
 
             this.state = {
                 products: reOrg,
-                localProds:reOrgLocal,
+                localProds: reOrgLocal,
                 cartQuant: cartTotal,
                 productTotal: productTotal,
                 tax: tax,
@@ -134,16 +134,20 @@ class Cart extends Component {
         const index = parseInt(event.target.attributes.name.value);
         const localProds = this.state.localProds
         const products = this.state.products
-        products.splice(index, 1);
-        localProds.splice(index, 1);
         let quant;
+        // console.log(this.state.cartQuant)
+        // console.log(products[index].quant)
 
+        // Update Quantity -> with existing arrays
         if (index === 0 && this.state.cartQuant === 1) {
             quant = 0;
         } else {
-            quant = this.state.cartQuant - products[index].quant
+            quant = this.state.cartQuant - products[index].quant;
         }
-
+        // Updated and remove item from array
+        products.splice(index, 1);
+        localProds.splice(index, 1);
+        // Updated states and call cart re-render
         this.setState({
             products: products,
             localProds: localProds,
@@ -151,7 +155,7 @@ class Cart extends Component {
         }, function () {
             this.cartItems();
         })
-
+        // Updated local storage and call cart number re-render in nav
         localStorage.setItem("Cart", JSON.stringify(localProds));
         this.props.cartUpdate();
     }
