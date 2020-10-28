@@ -65,13 +65,3 @@
 .product-list {
     padding-left: 0px;
 }
-
-.checkoutNotes {
-    font-family: var(--body-text);
-    font-size: 10px;
-    font-weight: var(--bold);
-}
-
-.contactUsLink, .contactUsLink:hover  {
-    color: #5C64A2;
-}

@@ -6,7 +6,7 @@ import {
     Link,
 } from "react-router-dom";
 
-class Cart extends Component {
+class Checkout extends Component {
     constructor(props) {
         super(props);
         const type = ['bed pillow', 'couch pillow', 'round pillow', 'floor pouf pillow'];
@@ -192,17 +192,10 @@ class Cart extends Component {
         }
     }
 
-    // checkout Button if items in cart
-    checkOutButton = () => {
-        if (this.state.cartQuant > 0) {
-            return <Link to="/checkout" className='cartButtonShop'>checkout</Link>
-        }
-    }
-
     render = () => {
         return (
             <div>
-                <h1 className='pageHeader'>your cart</h1>
+                <h1 className='pageHeader'>checkout</h1>
                 <Box className="cartDiv" px={4} py={3}>
                     <Grid container spacing={2} direction="column">
                         <Grid item container spaceing={3} className="cartHeader" directon="row">
@@ -215,12 +208,8 @@ class Cart extends Component {
 
                         {this.cartItems()}
 
-                        <Grid item container className="cartTotal" directon="row" justify="space-between">
-                            <Grid item xs={3} m={3} className="checkoutNotes">
-                                <Box>FREE Exchanges &amp; Easy Returns</Box>
-                                <Box>Fluff Stuff has Secure Transactions</Box>
-                                <Box>Questions? <Link to="/contact" className="contactUsLink"> Contact Us </Link></Box>
-                            </Grid>
+                        <Grid item container className="cartTotal" directon="row">
+                            <Grid item xs={9} ></Grid>
                             <Grid container item xs={3} direction='column' className="totalArea" alignItems='center'>
                                 <Grid item container direction="row" className="total prodTotal" justify='space-between'>
                                     <Box item="true" className='totalLabel'>Subtotal:</Box>
@@ -234,7 +223,7 @@ class Cart extends Component {
                                     <Box item="true" className='totalLabel'>Total:</Box>
                                     <Box item="true" className='totalCostNum badTotal'>${this.state.grandTotal}</Box>
                                 </Grid>
-                                <Box item="true" xs={3} m={3}>
+                                <Box item="true" m={3}>
                                     {this.checkOutButton()}
                                 </Box>
                             </Grid>
@@ -246,4 +235,4 @@ class Cart extends Component {
     }
 }
 
-export default Cart;
+export default Checkout;
