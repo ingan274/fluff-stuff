@@ -784,16 +784,16 @@ class Detail extends Component {
                         <Box mx={2}>
                             <Box mb={1} mt={3} className='itemSelectTitle'>COLOR</Box>
                             <Grid container direction="row" alignItems="center" justify='space-around' className='coloroptions' >
-                                <Grid item className={`customColor ${this.state.ASS ? "selectedColor" : ""}`} >
+                                <Grid item className={`customColor ASS ${this.state.ASS ? "selectedColorASS" : ""}`} >
                                     <Box py={2} mx={2} className="textOpt colorSelect" name="ASS" onClick={this.selectColor}> AFTER SCHOOL SPECIAL</Box>
                                 </Grid>
-                                <Grid item className={`customColor ${this.state.MH ? "selectedColor" : ""}`} >
-                                    <Box py={2} mx={2} className="textOpt colorSelect" name="MH" onClick={this.selectColor} >MORNING HAZE</Box>
+                                <Grid item className={`customColor MH ${this.state.MH ? "selectedColorMH" : ""}`}>
+                                    <Box py={2} mx={2} className="textOpt colorSelect"  name="MH" onClick={this.selectColor}>MORNING HAZE</Box>
                                 </Grid>
-                                <Grid item className={`customColor ${this.state.CD ? "selectedColor" : ""}`} >
-                                    <Box py={2} mx={2} className="textOpt colorSelect" name="CD" onClick={this.selectColor}  >COZY DEMIN</Box>
+                                <Grid item className={`customColor CD ${this.state.CD ? "selectedColorCD" : ""}`}>
+                                    <Box py={2} mx={2} className="textOpt colorSelect"  name="CD" onClick={this.selectColor}  >COZY DEMIN</Box>
                                 </Grid>
-                                <Grid item className={`customColor ${this.state.RD ? "selectedColor" : ""}`}>
+                                <Grid item className={`customColor RD ${this.state.RD ? "selectedColorRD" : ""}`}>
                                     <Box py={2} mx={2} className="textOpt colorSelect" name="RD" onClick={this.selectColor} >RAINY DAY</Box>
                                 </Grid>
                             </Grid>

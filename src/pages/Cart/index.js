@@ -23,7 +23,7 @@ class Cart extends Component {
                 grandTotal: "00.00"
             }
         }
-        // get from local storage, sort, and reorgnize 
+        // get from local storage, sort, and reorganize 
         else {
             let reOrg = [];
             let reOrgLocal = [];
@@ -180,7 +180,7 @@ class Cart extends Component {
                             imgPosition={item.imgPosition}
                             product={item.type}
                             color={item.color}
-                            fill={item.fill} s
+                            fill={item.fill} 
                             prodCost={item.cost}
                             quant={item.quant}
                             prodTotal={item.totalCost}
@@ -195,6 +195,8 @@ class Cart extends Component {
     // checkout Button if items in cart
     checkOutButton = () => {
         if (this.state.cartQuant > 0) {
+            localStorage.setItem("Prices", JSON.stringify({ 'productTotal': this.state.productTotal, 'tax': this.state.tax, 'total': this.state.grandTotal }));
+            localStorage.setItem("Cart", JSON.stringify(this.state.localProds));
             return <Link to="/checkout" className='cartButtonShop'>checkout</Link>
         }
     }
