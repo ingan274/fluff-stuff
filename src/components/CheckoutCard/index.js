@@ -14,20 +14,20 @@ class CartProd extends Component {
         };
 
         return (
-            <Grid item container className="cartProducts" directon="row" spacing={2}>
+            <Grid item container className="checkoutCart" directon="row" spacing={2}>
                 {/* Image and product Name */}
-                <Box xs={3} item='true' className="prodImg" style={img} m={1}></Box>
-                <Grid item xs={4} spacing={1} direction="column">
-                    <Box item='true' m={2} className="productTitle">{this.props.product}</Box>
-                    <Box m={1} className="colorFillCart"><span className="colorFillLabel">Color:</span> {this.props.color}</Box>
-                    <Box m={1} className="colorFillCart"><span className="colorFillLabel">Fill:</span> {this.props.fill}</Box>
+                <Box item='true' xs={2}  className="checkoutImg" style={img} m={1}></Box>
+                <Grid item container xs={5} spacing={1} direction="column">
+                    <Box item='true' className="productCheckoutTitle">{this.props.product}</Box>
+                    <Box item='true' mt={1} className="colorFillCart"><span className="colorFillLabel">Color:</span> {this.props.color}</Box>
+                    <Box item='true' className="colorFillCart"><span className="colorFillLabel">Fill:</span> {this.props.fill}</Box>
                 </Grid>
-                <Grid item xs={2} container direction="column">
-                    <Grid item xs={2} >
-                        <Box m={1} className="prodPrice">${this.props.prodCost}</Box>
-                        <Box m={1} className="prodquant">Quantity: {this.props.quant}</Box>
+                <Grid item xs={3} container direction="column">
+                    <Grid item >
+                        <Box mt={1} className="checkoutProd">${this.props.prodCost}</Box>
+                        <Box  className="checkoutProd">x {this.props.quant}</Box>
                     </Grid>
-                    <Box item='true' m={1} className="prodTotal">${this.props.prodTotal}</Box>
+                    <Box item='true' mt={1} className="checkoutProdTotal">${this.props.prodTotal}</Box>
                 </Grid>
             </Grid>
         )

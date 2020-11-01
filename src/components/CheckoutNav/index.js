@@ -20,9 +20,6 @@ class CheckoutNav extends Component {
         return (
             <Grid container direction="row" justify="space-between" alignItems="center" className="nav">
                 <Box xs={2}>
-                    <NavLink className="backToCart" exact={true} to='/shop' activeClassName='cartselected' >back to shop</NavLink>
-                </Box>
-                <Box xs={2}>
                     <img id='logo' src={logo} alt="fluff stuff logo" />
                 </Box>
                 <Box xs={2}>

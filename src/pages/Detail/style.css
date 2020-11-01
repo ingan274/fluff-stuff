@@ -124,3 +124,7 @@
     background-color: #FFC300;
     color: white;
 }
+
+.addToCart:active {
+    background-color: #b6cbcc;
+}
