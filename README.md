@@ -8,7 +8,7 @@ fluff stuff makes pillows that match your every stage of life
 <br>
 Digital Prototype of Fluff Stuff Website (Fall 2020 HW5)
 <br>
-Live Link: https://ingan274.github.io/fluff-stuff/
+Live Link: https://fluffstuff.netlify.app/
 <br>
 <br>
 
@@ -26,4 +26,4 @@ Live Link: https://ingan274.github.io/fluff-stuff/
 <br>
 
 # About this website
-Homework 6. Built using React, CSS, Martial UI, React Router.
+Homework 6. Built using React, CSS, Martial UI, React Router. Hosted on Netlify
