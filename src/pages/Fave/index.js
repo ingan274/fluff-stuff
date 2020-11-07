@@ -106,10 +106,12 @@ class Fave extends Component {
         const faved = this.state.faved
         faved.splice(index, 1);
         localFaves.splice(index, 1);
+        let faveQuant = this.state.faveQuant - 1
 
         this.setState({
             faved: faved,
             localFaves: localFaves,
+            faveQuant: faveQuant
         }, function () {
             this.faveItems();
         })
