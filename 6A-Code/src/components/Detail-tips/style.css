@@ -1,0 +1,57 @@
+#product-stat{
+    position: absolute;
+    top: 80px;
+    left: 100px;
+    width: 600px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+}
+
+#note-title {
+    font-family: var(--title-font);
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin: 20px 20px;
+    color: #DF841C;
+}
+
+#notes-table{
+    width: 520px;
+    margin: 0px auto;
+    border-top:1px solid black ;
+    border-bottom:1px solid black ;
+}
+
+.middleCell{
+    border-right:1px solid black;
+    border-left:1px solid black;
+}
+
+.table-info {
+    border-top:1px solid black;
+    margin: 20px 20px;
+}
+
+
+.table-title {
+    text-transform: uppercase;
+    font-family: var(--body-font); 
+    font-size: 12px;
+    font-weight: var(--bold);
+    width: 30%;
+    padding: 10px 10px;
+    text-align: center;
+}
+
+.table-info{
+    text-transform: uppercase;
+    font-family: var(--body-font); 
+    font-size: 10px;
+    padding: 15px 15px 10px 15px;
+    vertical-align: top;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.0);
+}
+
+

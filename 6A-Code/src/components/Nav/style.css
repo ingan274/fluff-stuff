@@ -1,0 +1,53 @@
+
+.nav{
+    margin: 25px 0px 30px;
+  }
+  
+  #logo {
+    height: 70px;
+  }
+  
+  .navigation {
+    font-family: var(--title-font);
+    font-size: 13px;
+    color: #A8A8A8;
+    text-align: center;
+    align-self: center;
+  }
+  
+  .right {
+    margin: 3px 30px;
+  }
+
+  .heart, .cart {
+    margin: 0px 30px;
+    position: relative;
+  }
+  
+  #shop:hover, #about:hover, #contact:hover, .cart:hover,  .heart:hover {
+    color: #455274;
+  }
+  
+  .selected {
+    color: #455274;
+    border-bottom: 3px solid #455274;
+    transition: border-bottom .5s ease-in-out;
+  }
+
+  .cartselected {
+    color: #455274;
+  }
+
+  #cartNum {
+    font-family: var(--body-font);
+    background: #455274;
+    padding: 2px 6px;
+    margin: 0px 3px;
+    border-radius: 50%;
+    bottom: 30px;
+    color:white;
+    font-size: 11px;
+    font-weight: var(--bold);
+  }
+
+  

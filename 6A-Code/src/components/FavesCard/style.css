@@ -1,0 +1,36 @@
+.faveImg {
+    width: 215px;
+    height: 215px;
+}
+
+.faveProducts {
+    background-color:rgba(69, 82, 116, 0.02);
+    font-family: var(--body-font);
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+.productTitleFave {
+    font-family: var(--title-font);
+    font-size: 20px;
+    color: #5C64A2;
+}
+
+.addFavetoCart {
+    font-family: var(--body-font);
+    background-color: white;
+    text-transform: uppercase;
+    color: #FFD19C;
+    border: 2px solid #FFD19C;
+    width: 200px;
+    font-size: 18x;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px auto;
+}
+
+.addFavetoCart:hover {
+    background-color: #FFD19C;
+    color: white;
+}

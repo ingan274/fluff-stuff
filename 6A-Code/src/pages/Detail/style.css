@@ -1,0 +1,130 @@
+
+.pagePath {
+    font-family: var(--body-font);
+    color: #455274;
+    font-size: 10px;
+    text-transform: uppercase;
+    margin: 15px 0px;
+}
+
+#pathToAll {
+    color: #455274;
+}
+
+.itemSelectTitle {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+/* Fill and color buttons */
+
+.customFill {
+    border-radius: 5px;
+    color: #EDB678;
+    border: 2px solid #EDB678;
+    font-weight: var(--bold);
+}
+
+.textOpt {
+    text-align: center;
+}
+
+.customFill, .customColor  {
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.customFill:hover {
+    color: white;
+    background-color: #EDB678;
+}
+
+.selectedFill{
+    background-color: #EDB678;
+    color: white;
+}
+
+.detailLine {
+    border-top: 2px solid #A8A8A8;
+    margin: 4px;
+}
+
+
+/* Detail dropdown */
+.dropdownTitle {
+    color: #455274;
+    font-family: var(--body-font);
+    text-transform: uppercase;
+    font-size: 13px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.sign {
+    text-align: center;
+    cursor: pointer;
+}
+
+.openInfo {
+    cursor: pointer;
+    font-family: var(--bold);
+    color: #455274;
+    font-size: 14px;
+    padding: 7px 20px 7px 12px;
+}
+
+.details {
+    margin-top: 30px;
+}
+
+.MH {
+    border: 2px solid #bcbfc6;
+    border-radius: 5px;
+    color: #bcbfc6;
+    font-weight: var(--bold);
+}
+.selectedColorMH, .selectedColorCD:hover {
+    background-color: #bcbfc6;
+    color: white;
+}
+
+.CD {
+    border: 2px solid  #42495c;
+    border-radius: 5px;
+    color:  #42495c;
+    font-weight: var(--bold);
+}
+
+.selectedColorCD, .selectedColorCD:hover {
+    background-color: #42495c;
+    color: white;
+}
+
+.RD {
+    border: 2px solid #b6cbcc;
+    border-radius: 5px;
+    color: #b6cbcc;
+    font-weight: var(--bold);
+}
+
+.selectedColorRD, .selectedColorRD:hover {
+    background-color: #b6cbcc;
+    color: white;
+}
+
+
+.ASS {
+    border: 2px solid #FFC300;
+    border-radius: 5px;
+    color: #FFC300;
+    font-weight: var(--bold);
+}
+
+.selectedColorASS, .selectedColorASS:hover {
+    background-color: #FFC300;
+    color: white;
+}
+
+.addToCart:active {
+    background-color: #b6cbcc;
+}

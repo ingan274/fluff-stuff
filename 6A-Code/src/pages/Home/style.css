@@ -1,0 +1,97 @@
+:root {
+    --title-font: 'Kavoon', cursive;
+    --body-font:'Poppins', sans-serif;
+    --bold: 700;
+}
+
+
+/* Fill and Color Sections */
+
+.PColors, .PFills { 
+    margin-top: 35px;
+    text-align: center;
+    padding: 20px;
+}
+
+.title {
+    font-family: var(--title-font);
+    color: #455274;
+    font-size: 50px;
+    padding-bottom: 30px;
+}
+
+.PColors, .PFills {
+    width: 100%;
+}
+
+/* COLOR IMAGES */
+.color, .fill {
+    margin: 10px 20px;
+    width: 100%;
+}
+
+.colorImage, .fillImage {
+    width: 180px;
+    height: 180px;
+    margin: 10px;
+    border-radius:50%;
+}
+
+.imageText {
+    font-family: var(--body-font);
+    margin-top: 10px;
+    color: #A8A8A8;
+}
+
+.school {
+    background: url(../../assets/imgs/school-special/sarah-boudreau-EdRcN6buYzg-unsplash.jpg);
+    background-size: cover;
+    background-position: bottom;
+}
+
+.haze {
+    background: url(../../assets/imgs/morning-haze/j-kelly-brito-I2hZjWx8DWs-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.demin {
+    background: url(../../assets/imgs/Denim/taylor-simpson-6JGJjb49PqA-unsplash.jpg);
+    background-size: 230%;
+    background-position: 15% 70%;
+}
+
+.rainy {
+    background: url(../../assets/imgs/rainy-day/pesce-huang-L0_i0ClBM8E-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* FILL IMAGES */
+
+.duck {
+    background: url(../../assets/imgs/home/evie-s-Sw7f58YJbc0-unsplash.jpg);
+    background-size: cover;
+    background-position: bottom;
+}
+
+.polyBlend {
+    background: url(../../assets/imgs/home/crystal-de-passille-chabot-IQJce7KVi3M-unsplash.jpg);
+    background-size: cover;
+    background-position: bottom;
+}
+
+.foam {
+    background: url(../../assets/imgs/home/rodolfo-puchulu-jGfIzudYK_Q-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* buttom button */
+#bottom-button {
+    margin-top: 30px;
+}
+
+footer {
+    height: 25px;
+}

@@ -1,0 +1,32 @@
+.photo {
+    height: 560px;
+}
+
+.phototext {
+    font-family: var(--title-font);
+    color: #2A379D;
+    font-size: 53.45px;
+    padding: 40px 50px;
+    text-align: center;
+}
+
+.homeButtonCTA {
+    font-family: var(--body-font);
+    background-color: #FFD19C;
+    color: white;
+    border: none;
+    width: 200px;
+    height: 45px;
+    font-size: 18x;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    margin-top: -170px;
+}
+
+.homeButtonCTA:hover {
+    background-color: #111F99;
+    color: white;
+}
+
+

@@ -1,0 +1,9 @@
+:root {
+  --title-font: 'Kavoon', cursive;
+  --body-font:'Poppins', sans-serif;
+  --bold: 700;
+}
+
+a, a:hover {
+  text-decoration: none;
+}

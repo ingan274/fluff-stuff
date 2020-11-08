@@ -1,0 +1,96 @@
+/* About Text */
+
+.origin{
+    width: 948px;
+    height: 253px;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+  
+}
+
+.aboutText {
+    font-family: var(--body-font);
+    text-align: center;
+    color: #797979;
+    font-size: 16px;
+    align-self: center;
+}
+
+/* arrow */
+.stage {
+    height: 70px;
+    margin: 10px 0px;
+    width: 100%;
+    display: flex;
+}
+.aboutScroll {
+    align-self: flex-end;
+    animation-duration: 1.7s;
+    animation-iteration-count: infinite;
+    color: rgba(92, 100, 162, 0.2);
+    margin: 0px auto;
+}
+.bounce-1 {
+    animation-name: bounce-1;
+    animation-timing-function: linear;
+}
+
+@keyframes bounce-1 {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+
+/* Fill information */
+
+div.fillPhoto {
+    width: 611px;
+    height: 257px;
+}
+
+/* Images of Fill */
+
+.duck {
+    background: url(../../assets/imgs/home/evie-s-Sw7f58YJbc0-unsplash.jpg);
+    background-size: cover;
+    background-position: bottom;
+}
+
+.polyBlend {
+    background: url(../../assets/imgs/home/crystal-de-passille-chabot-IQJce7KVi3M-unsplash.jpg);
+    background-size: cover;
+    background-position: bottom;
+}
+
+.foam {
+    background: url(../../assets/imgs/home/rodolfo-puchulu-jGfIzudYK_Q-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.details {
+    width: 611px;
+    font-size: 20px;
+    color: #A8A8A8;
+}
+
+.filltitle {
+    font-size: 35px;
+    font-family: var(--title-font);
+    color: #5C64A2;
+    padding-bottom: 10px;
+}
+
+.filldesc {
+    font-family: var(--body-font);
+}
+
+.fillDeets {
+    margin-bottom: 30px;
+}
+
+footer {
+    height: 50px;
+}
