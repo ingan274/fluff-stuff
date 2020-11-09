@@ -151,10 +151,20 @@ class Cart extends Component {
         this.setState({
             products: products,
             localProds: localProds,
-            cartQuant: quant,
+            cartQuant: quant
         }, function () {
             this.cartItems();
         })
+
+        // If Quant is 0 => reset costs
+        if (quant === 0) {
+            this.setState({
+                productTotal: "00.00",
+                tax: "00.00",
+                grandTotal: "00.00"
+            })
+        }
+
         // Updated local storage and call cart number re-render in nav
         localStorage.setItem("Cart", JSON.stringify(localProds));
         this.props.cartUpdate();
@@ -180,7 +190,7 @@ class Cart extends Component {
                             imgPosition={item.imgPosition}
                             product={item.type}
                             color={item.color}
-                            fill={item.fill} 
+                            fill={item.fill}
                             prodCost={item.cost}
                             quant={item.quant}
                             prodTotal={item.totalCost}
